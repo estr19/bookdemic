@@ -1,0 +1,622 @@
+@font-face {
+  font-family: 'Twilight';
+  src: url('https://cdn.glitch.com/a149e74e-9a26-4ad2-937c-331de96a3e0a%2FIllustration%20Ink%20-%20LD%20Twylight.ttf')
+       url('https://cdn.glitch.com/a149e74e-9a26-4ad2-937c-331de96a3e0a%2FIllustration%20Ink%20-%20LD%20Twylight.ttf') format('ttf')
+}
+
+body {
+  background-color: #d0c1d7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#stickyTop {
+  flex: 1 1 auto;
+  overflow: hidden;
+  background-color: #022E57;
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+#mtgString {
+  display: flex;
+  align-items: center;
+  margin: 0px 10px;
+  color: #d0c1d7;
+  font-size: 20px;
+}
+
+p#nextMtg {
+  display: flex;
+  justify-content: center;
+  overflow-wrap: break-word;
+  align-items: center;
+  color: #d0c1d7;
+  margin: 10px;
+  font-size: 20px;
+}
+
+#playPause {
+  line-height: 150%;
+  border: none;
+  background: transparent;
+  font-size: 2em;
+  color: #d0c1d7;
+}
+
+button {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 60px;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-flow: column;
+  flex-direction: wrap;
+  justify-content: center;
+  margin: 15px;
+  width: 95%;
+}
+
+.countdown {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px;
+/*   width: 95%; */
+}
+
+.readingTimer {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+#triviaGame {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+p#rTimer {
+  font-size: 1.5rem;
+  color: #9B3675;
+}
+
+#readingBtn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#btn15, #btn30, #btn60 {
+/*   flex: 0 1 auto; */
+  background-color: #e8e0eb;
+  color: #022E57;
+  max-width: 100px;
+  padding: 5px 10px;
+  font-family: "Otomanopee One", 'Oswald', sans-serif;
+  font-size: 20px;
+  border: 2px solid #022E57;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+#btn15:hover, #btn30:hover, #btn60:hover {
+  cursor: pointer;
+  background-color: #022E57;
+  border: 2px solid #022E57;
+  color: #E8E0EB;
+}
+
+#inputRTimer {
+  max-width: 250px;
+  border: 2px solid #022E57;
+}
+
+#trivia {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+/*   width: 95%; */
+}
+
+h3 {
+  text-align: center;
+  word-break: break-word;
+  font-family: "Acme", sans-serif;
+  font-size: 15px;
+  color: #022E57;
+  margin: 0px;
+}
+
+figure {
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  margin: auto;
+}
+
+figcaption {
+  background-color: #11144C;
+  color: white;
+  font: italic smaller sans-serif;
+  padding: 3px;
+  text-align: center;
+}
+
+#description {
+  margin: 15px 0px 15px 0px;
+  color: #000000;
+  font-family: "Acme", sans-serif;
+  font-size: 25px;
+}
+
+#play {
+  display: flex;
+  align-items: center;
+  background: none;
+  cursor: pointer;
+  font-size: 40px;
+  border: 0px;
+  padding: 0px 10px;
+  margin: 0px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input {
+  background-color: #e8e0eb;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #022E57;
+  border-radius: 10px;
+}
+
+#question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  padding: 5px;
+  min-width: 350px;
+/*   flex: 1; */
+}
+
+#guess {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40%;
+  max-width: 220px;
+}
+
+#playbutton {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  margin: 0px 15px;
+  background-color: #e8e0eb;
+  font-family: "Acme", sans-serif;
+  font-size: 30px;
+  border: 2px solid #9B3675;
+  border-radius: 10px;
+  padding: 3px 12px;
+}
+
+#playbutton:hover {
+  cursor: pointer;
+  background-color: #9B3675;
+  border: 2px solid #9B3675;
+  color: #E8E0EB;
+}
+
+#quote {
+  display: flex;
+  justify-content: center;
+}
+
+#quotebutton {
+  background-color: #e8e0eb;
+  color: #022E57;
+  padding: 10px;
+  font-family: "Otomanopee One", 'Oswald', sans-serif;
+  font-size: 20px;
+  border: 2px solid #022E57;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+}
+
+#quotebutton:hover {
+  cursor: pointer;
+  background-color: #022E57;
+  border: 2px solid #022E57;
+  color: #E8E0EB;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 1rempx;
+  text-align: center;
+  word-break: break-word;
+  font-family: "Twilight", "Architects Daughter", cursive;
+  font-size: 60px;
+  color: #022E57;
+}
+
+p {
+  flex: 1;
+  text-align: center;
+  word-break: break-word;
+  font-family: "Acme", sans-serif;
+  font-size: 35px;
+  color: #022E57;
+  margin: 0px;
+}
+
+.twilight {
+  font-family: "Twilight";
+  font-weight: bolder;
+}
+
+p.buttontext {
+  font-size: 15px;
+}
+
+.buttontext {
+  color: #9B3675;
+}
+
+a {
+  color: #022E57;
+  text-decoration: none;
+}
+
+img {
+  border: 4mm ridge #9B72AA;
+  margin-bottom: 10px;
+  width: 310px;
+  height: 475px;
+}
+
+img#picPlay {
+  background-color: none;
+  margin: 0px;
+  border: none;
+  height: 60px;
+  width: 60px;
+}
+
+.rating {
+  color: #9B3675;
+  font-weight: bold;
+}
+
+.pictures {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px;
+}
+
+.book {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 340px;
+  margin: 0px 15px 20px 15px;
+}
+
+#input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.swal2-html-container,
+#swal2-html-container .swal2-title {
+  color: white;
+  text-align: center;
+  font-family: "Architects Daughter", cursive;
+}
+
+button.swal2-confirm.swal2-styled {
+  background-color: #9B3675;
+  color: white;
+  font-family: "Architects Daughter", cursive;
+}
+
+img.swal2-image {
+  border: none;
+}
+
+#map{
+  display: none;
+}
+
+@media all and (max-width: 900px) {
+  body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    flex-flow: column wrap;
+  }
+
+  span {
+    text-align: center;
+    word-break: break-word;
+    font-size: 20px;
+  }
+
+  .music {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 250px;
+  }
+
+  .countdown {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  #description {
+    font-size: 15px;
+  }
+
+  input#guess {
+    font-size: 10px;
+  }
+
+  input {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    width: 98%;
+  }
+
+  h1 {
+    margin: 1rem;
+    text-align: center;
+    word-break: break-word;
+    font-size: 50px;
+    width: 98%;
+  }
+
+  p.buttontext {
+    font-size: 15px;
+  }
+  
+    #quotebutton {
+    font-size: 15px;
+    border: 1px solid #022E57;
+    margin-bottom: 10px;
+  }
+  
+  .block {
+    padding: 0px 10px;
+  }
+
+  p,
+  h3,
+  h4 {
+    font-size: 15px;
+  }
+
+  p {
+    flex: 1;
+    text-align: center;
+    word-break: break-word;
+    font-size: 20px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
+    flex-wrap: wrap;
+  }
+
+  .book {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 230px;
+  }
+
+  img {
+    width: 200px;
+    height: 306px;
+  }
+
+  img#picPlay {
+    background-color: none;
+    border: none;
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media all and (max-width: 500px) {  
+  body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 0px;
+    width: 95%;
+  }
+
+  span {
+    font-size: 15px;
+    padding: 1px;
+  }
+
+  .music {
+    flex: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .countdown {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .element {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .block {
+    padding: 5px;
+  }
+  
+  #description {
+    font-size: 15px;
+  }
+
+  #playbutton {
+    font-size: 15px;
+    border: 1px solid #9B3675;
+    border-radius: 10px;
+    padding: 10px 15px;
+  }
+  
+  #quotebutton {
+    font-size: 12px;
+    border: 1px solid #022E57;
+    margin-bottom: 10px;
+  }
+
+  input {
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    margin: 0px 5px;
+    padding: 5px;
+    border: 1px solid #022E57;
+    border-radius: 10px;
+  }
+
+  h1 {
+    text-align: center;
+    word-break: break-word;
+    font-size: 30px;
+  }
+
+  p,
+  h3,
+  h4,
+  #btn15,
+  #btn30,
+  #btn60 {
+    font-size: 15px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
+    flex-wrap: wrap;
+  }
+
+  .book {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 161px;
+  }
+
+  p.buttontext,
+  input#guess {
+    font-size: 10px;
+    margin: 0px 5px;
+  }
+
+  p#question,
+  p#nextMtg{
+    font-size: 16px;
+  }
+
+  img {
+    border: 3mm ridge #9B72AA;
+    width: 105px;
+    height: 161px;
+  }
+
+  img#picPlay {
+    background-color: none;
+    padding: none;
+    margin: none;
+    border: none;
+    height: 35px;
+    width: 35px;
+  }
+}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/e303c9fea7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Architects+Daughter&family=Otomanopee+One&display=swap" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
+      rel="stylesheet"
+    />
+    <title>Bookdemic Official Website</title>
+  </head>
+
+  <body>
+    <audio
+      id="song"
+      src="https://cdn.glitch.com/a149e74e-9a26-4ad2-937c-331de96a3e0a%2F15eb43f1-1700-4db6-98b7-cda9e2463983.Bella's%20Lullaby.mp3"
+      loop="loop"
+    ></audio>
+
+    <audio id="win" src="" loop="loop" autoplay="allowed"></audio>
+    
+    <div id="stickyTop">
+      <p id="nextMtg">Our next book discussion is in: <span id="mtgString"></span>
+      <button><i id="playPause" class="far fa-play-circle"></i></button>
+      </p>
+    </div>
+    
+    <div class="header">    
+      <div class="countdown">
+        <div class="readingTimer">
+          <p id="rTimer">IT'S TIME TO READ MORE!</p>
+          <div id="readingBtn">
+            <button id="btn15" value="15">15 min</button>
+            <button id="btn30" value="30">30 min</button>
+            <button id="btn60" value="60">1 hour</button>
+            <input id="inputRTimer" type="text" placeholder="or enter your own time in minutes!">
+          </div>
+          
+        </div>
+      </div>
+      <div id="trivia">
+        <div id="triviaGame">
+          <p id="question">How old was Edward when he was turned into a vampire?</p>
+            <input
+              id="guess"
+              type="text"
+              placeholder="Hold on tight, spidermonkey..."
+            />
+            <button id="playbutton" class="buttontext">PLAY</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="title">
+      <div id="quote">
+        <button id="quotebutton">Click here for our favorite "Twilight" quotes!</button>
+      </div>
+      <h1>Bookdemic "Book of the Month" Winners</h1>
+      <p id="description">The stars
+        reveal our club's average rating.
+      </p>
+      <div id="input-container">
+        <input
+          type="text"
+          name="search"
+          id="search-two"
+          placeholder="Search the books by title, author, month, or year."
+        />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446013485l/1281393._SY475_.jpg"
+              alt="Practical Magic"
+            />
+            <figcaption>April 2022</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/22896.Practical_Magic"
+            target="_blank"
+            >Practical Magic</a
+          >
+        </p>
+        <p class="author">Alice Hoffman</p>
+        <p class="rating" alt="">not yet rated</p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555770031l/45181500._SY475_.jpg"
+              alt="Mindhunter"
+            />
+            <figcaption>March 2022</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/36100717-mindhunter"
+            target="_blank"
+            >Mindhunter</a
+          >
+        </p>
+        <p class="author">John E. Douglas, Mark Olshaker</p>
+        <p class="rating" alt="4.7"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1627738574l/56969543.jpg"
+              alt="Bullet Train"
+            />
+            <figcaption>February 2022</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/56969543-bullet-train"
+            target="_blank"
+            >Bullet Train</a
+          >
+        </p>
+        <p class="author">Kōtarō Isaka</p>
+        <p class="rating" alt="3,7"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608122374l/56309332._SY475_.jpg"
+              alt="One Day in December"
+            />
+            <figcaption>January 2022</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/56309332-one-day-in-december"
+            target="_blank"
+            >One Day in December</a
+          >
+        </p>
+        <p class="author">Josie Silver</p>
+        <p class="rating" alt="2.0"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398483261l/19057.jpg"
+              alt="I Am the Messenger"
+            />
+            <figcaption>December 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/19057.I_Am_the_Messenger"
+            target="_blank"
+            >I Am the Messenger</a
+          >
+        </p>
+        <p class="author">Markus Zusak</p>
+        <p class="rating" alt="3,5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608403534l/43225180._SY475_.jpg"
+              alt="Verity"
+            />
+            <figcaption>November 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/43225180-verity"
+            target="_blank"
+            >Verity</a
+          >
+        </p>
+        <p class="author">Colleen Hoover</p>
+        <p class="rating" alt="3,6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1552471375l/36478784._SY475_.jpg"
+              alt="The Flatshare"
+            />
+            <figcaption>October 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/53287484-midnight-sun"
+            target="_blank"
+            >The Flatshare</a
+          >
+        </p>
+        <p class="author">Beth O'Leary</p>
+        <p class="rating" alt="3,9"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1588597375l/53287484.jpg"
+              alt="Midnight Sun"
+            />
+            <figcaption>September 2021</figcaption>
+          </figure>
+        </div>
+        <p class="twilight">
+          <a
+            href="https://www.goodreads.com/book/show/53287484-midnight-sun"
+            target="_blank"
+            >Midnight Sun</a
+          >
+        </p>
+        <p class="author twilight">Stephenie Meyer</p>
+        <p class="rating" alt="4,0"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608152250l/36039837._SY475_.jpg"
+              alt="The Last Mrs. Parrish"
+            />
+            <figcaption>August 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/36039837-the-last-mrs-parrish"
+            target="_blank"
+            >The Last Mrs. Parrish</a
+          >
+        </p>
+        <p class="author">Liv Constantine</p>
+        <p class="rating" alt="3,4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1589255853l/49374512.jpg"
+              alt="The One"
+            />
+            <figcaption>July 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/49374512-the-one"
+            target="_blank"
+            >The One</a
+          >
+        </p>
+        <p class="author">John Marrs</p>
+        <p class="rating" alt="3,4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1543386631l/40914164.jpg"
+              alt="he 7½ Deaths of Evelyn Hardcastle"
+            />
+            <figcaption>June 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/40914164-the-7-1-2-deaths-of-evelyn-hardcastle"
+            target="_blank"
+            >The 7½ Deaths of Evelyn Hardcastle</a
+          >
+        </p>
+        <p class="author">Stuart Turton</p>
+        <p class="rating" alt="4,3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1490813483l/34052352.jpg"
+              alt="The House at the Edge of Night"
+            />
+            <figcaption>May 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/34052352-the-house-at-the-edge-of-night"
+            target="_blank"
+            >The House at the Edge of Night</a
+          >
+        </p>
+        <p class="author">Catherine Banner</p>
+        <p class="rating" alt="3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398921955l/321574.jpg"
+              alt="Chocolat"
+            />
+            <figcaption>April 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/321574.Chocolat"
+            target="_blank"
+            >Chocolat</a
+          >
+        </p>
+        <p class="author">Joanne Harris</p>
+        <p class="rating" alt="3,5 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1428638731l/23014724.jpg"
+              alt="The Shell Seekers"
+            />
+            <figcaption>March 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/23014724-the-shell-seekers"
+            target="_blank"
+            >The Shell Seekers</a
+          >
+        </p>
+        <p class="author">Rosamunde Pilcher</p>
+        <p class="rating" alt="3,9 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1503177569l/36071330.jpg"
+              alt="The Hypnotist's Love Story"
+            />
+            <figcaption>February 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/36071330-the-hypnotist-s-love-story"
+            target="_blank"
+            >The Hypnotist's Love Story</a
+          >
+        </p>
+        <p class="author">Liane Moriarty</p>
+        <p class="rating" alt="3,9 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578850525l/45892228.jpg"
+              alt="Crave"
+            />
+            <figcaption>January 2021</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/45892228-crave"
+            target="_blank"
+            >Crave</a
+          >
+        </p>
+        <p class="author">Tracy Wolff</p>
+        <p class="rating" alt="2,1 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1549463282l/36430011._SY475_.jpg"
+              alt="You"
+            />
+            <figcaption>December 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/36430011-you"
+            target="_blank"
+            >You</a
+          >
+        </p>
+        <p class="author">Caroline Kepnes</p>
+        <p class="rating" alt="4,1 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327879967l/4588.jpg"
+              alt="Extremely Loud and Incredibly Close"
+            />
+            <figcaption>November 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/4588.Extremely_Loud_Incredibly_Close"
+            target="_blank"
+            >Extremely Loud and Incredibly Close</a
+          >
+        </p>
+        <p class="author">Jonathan Safran Foer</p>
+        <p class="rating" alt="2,9 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1573082070l/48722935.jpg"
+              alt="The Other Boleyn Girl"
+            />
+            <figcaption>October 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/48722935-the-other-boleyn-girl"
+            target="_blank"
+            >The Other Boleyn Girl</a
+          >
+        </p>
+        <p class="author">Philippa Gregory</p>
+        <p class="rating" alt="3,7 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1420732457l/147865.jpg"
+              alt="Love, Rosie"
+            />
+            <figcaption>September 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/147865.Love_Rosie"
+            target="_blank"
+            >Love, Rosie</a
+          >
+        </p>
+        <p class="author">Cecelia Ahern</p>
+        <p class="rating" alt="3 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328753097l/93019.jpg"
+              alt="Little Women"
+            />
+            <figcaption>August 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/93019.Little_Women"
+            target="_blank"
+            >Little Women</a
+          >
+        </p>
+        <p class="author">Louisa May Alcott</p>
+        <p class="rating" alt="3,5 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446469353l/22822858._SY475_.jpg"
+              alt="A Little Life"
+            />
+            <figcaption>July 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/22822858-a-little-life"
+            target="_blank"
+            >A Little Life</a
+          >
+        </p>
+        <p class="author">Hanya Yanagihara</p>
+        <p class="rating" alt="- out of 5"><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1524596540l/36124936._SY475_.jpg"
+              alt="The Outsider"
+            />
+            <figcaption>June 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/36124936-the-outsider"
+            target="_blank"
+            >The Outsider</a
+          >
+        </p>
+        <p class="author">Stephen King</p>
+        <p class="rating" alt="3 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+      </div>
+
+      <div class="book">
+        <div class="pictures">
+          <figure>
+            <img
+              src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1551568314l/44177149._SY475_.jpg"
+              alt="Little Fires Everywhere"
+            />
+            <figcaption>May 2020</figcaption>
+          </figure>
+        </div>
+        <p>
+          <a
+            href="https://www.goodreads.com/book/show/51704136-little-fires-everywhere"
+            target="_blank"
+            >Little Fires Everywhere</a
+          >
+        </p>
+        <p class="author">Celest Ng</p>
+        <p class="rating" alt="4,4 out of 5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+      </div>
+    </div>
+
+    
+    <section id="map">
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=yldnybiIz79X4T0zBcrdDmWoBDB4esi32nBUY98gYTY&cl=ffffff&w=a"></script>
+    </section>
+    <script src="https://use.fontawesome.com/84d8bad270.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
