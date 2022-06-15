@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Twilight';
-  src: url('https://cdn.glitch.com/a149e74e-9a26-4ad2-937c-331de96a3e0a%2FIllustration%20Ink%20-%20LD%20Twylight.ttf')
-       url('https://cdn.glitch.com/a149e74e-9a26-4ad2-937c-331de96a3e0a%2FIllustration%20Ink%20-%20LD%20Twylight.ttf') format('ttf')
+  src: url('/src/LD\ Twylight.ttf')
 }
 
 body {

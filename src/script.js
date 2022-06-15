@@ -34,7 +34,7 @@ searchInputTwo.addEventListener("keyup", function(event) {
 });
 
 function meetingCountdown() {
-  const meetingDate = new Date("2022-04-09T19:00:00Z"); //date in UTC format (hence the Z at the end of the date)
+  const meetingDate = new Date("2022-05-14T07:00:00Z"); //date in UTC format (hence the Z at the end of the date)
   const today = new Date();
   const difference = meetingDate - today;
 
