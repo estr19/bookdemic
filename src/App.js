@@ -1,58 +1,93 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
 import { books } from './books';
+import { quotes } from './quotes';
+import song from "./lullaby.mp3";
 
 function App() {
+  const [quote, setQuote] = useState();
+  const [showTime, setShowTime] = useState([]);
+  const [showQuote, setShowQuote] = useState(false);
+  const [showDiscussion, setShowDiscussion] = useState(false);
+  const playPause = document.getElementById("playPause");
+  const music = new Audio(song);
+  music.loop = true;
+  let i = 0;
+
+  // window.onscroll = () => {
+  //   let navbar = document.getElementById("stickyTop");
+  //   let sticky = navbar.offsetTop;
+  //   if (window.pageYOffset >= sticky) {
+  //     navbar.classList.add("sticky")
+  //   } else {
+  //     navbar.classList.remove("sticky");
+  //   }
+  // };
+  
+  const handleMusicClick = () => {
+    if (i === 0) {
+      i = 1;
+      music.play();
+      music.loop = true;
+      playPause.removeAttribute("class");
+      playPause.setAttribute("class", "far fa-pause-circle");
+    } else {
+      i = 0;
+      music.pause();
+      music.loop = false;
+      playPause.removeAttribute("class");
+      playPause.setAttribute("class", "far fa-play-circle");
+    }
+  };
+
+  const handleQuoteClick = () => {
+    let i = Math.floor(Math.random() * quotes.length);
+    setQuote(quotes[i]);
+    setShowQuote(true);
+  }
+
+  const meetingCountdown = () => {
+    let newObjects = [];
+    let showDate = new Date("2022-11-12T07:00:00Z");
+    const today = new Date();
+    const difference = showDate - today;
+    
+    let displayDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+    let displayHours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    let displayMinutes = Math.floor((difference / 1000 / 60) % 60);
+    let displaySeconds = Math.floor((difference / 1000) % 60);
+    
+    if (displayDays < 10) displayDays = "0" + displayDays;
+    if (displayHours < 10) displayHours = "0" + displayHours;
+    if (displayMinutes < 10) displayMinutes = "0" + displayMinutes;
+    if (displaySeconds < 10) displaySeconds = "0" + displaySeconds;
+
+    if (difference > 0) {
+      newObjects = {
+        days: displayDays,
+        hours: displayHours,
+        minutes: displayMinutes,
+        seconds: displaySeconds,
+      }
+    } else {
+      setShowDiscussion(true);
+    }
+    return setShowTime(newObjects);
+  }
+
+  useEffect(() => {
+    const tick = setTimeout(() => {
+      meetingCountdown();
+    }, 1000);
+    return () => clearInterval(tick);
+  });
+
   return (
     <div className="App">
-      <audio
-      id="song"
-      src="https://cdn.glitch.com/a149e74e-9a26-4ad2-937c-331de96a3e0a%2F15eb43f1-1700-4db6-98b7-cda9e2463983.Bella's%20Lullaby.mp3"
-      loop="loop"
-      ></audio>
-
-      <audio id="win" src="" loop="loop" autoplay="allowed"></audio>
-      
       <div id="stickyTop">
-        <p id="nextMtg">Our next book discussion is in: <span id="mtgString"></span>
-        <button><i id="playPause" className="far fa-play-circle"></i></button>
-        </p>
-      </div>
-      
-      <div className="header">
-        <div className="countdown">
-          <div className="readingTimer">
-            <p id="rTimer">IT'S TIME TO READ MORE!</p>
-            <div id="readingBtn">
-              <button id="btn15" value="15">15 min</button>
-              <button id="btn30" value="30">30 min</button>
-              <button id="btn60" value="60">1 hour</button>
-              <input id="inputRTimer" type="text" placeholder="or enter your own time in minutes!" />
-            </div>
-            
-          </div>
+        <div id='top'>
+          <button onClick={handleMusicClick}><i id="playPause" className="far fa-play-circle"></i></button>
+          <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>November 12th</span>}</p>
         </div>
-        <div id="trivia">
-          <div id="triviaGame">
-            <p id="question">How old was Edward when he was turned into a vampire?</p>
-              <input
-                id="guess"
-                type="text"
-                placeholder="Hold on tight, spidermonkey..."
-              />
-              <button id="playbutton" class="buttontext">PLAY</button>
-          </div>
-        </div>
-      </div>
-      
-      <div className="title">
-        <div id="quote">
-          <button id="quotebutton">Click here for our favorite "Twilight" quotes!</button>
-        </div>
-        <h1>Bookdemic "Book of the Month" Picks!</h1>
-        <p id="description">The stars
-          reveal our club's average rating.
-        </p>
         <div id="input-container">
           <input
             type="text"
@@ -61,6 +96,16 @@ function App() {
             placeholder="Search the books by title, author, month, or year."
           />
         </div>
+      </div>
+
+      <div className="title">
+        <div id="quote">
+          <button onClick={handleQuoteClick} id="quotebutton">{showQuote ? `${quote}` : 'Click here for our favorite "Twilight" quotes!'}</button>
+        </div>
+        <h1>Bookdemic "Book of the Month" Winners!</h1>
+        <p id="description">The stars
+          reveal our club's average rating.
+        </p>
       </div>
 
       <div className="container">
@@ -82,10 +127,10 @@ function App() {
                     href={link}
                     target="_blank"
                     rel="noreferrer"
-                    >{name}</a>
+                    >"{name}"</a>
                 </p>
-                <p class="author">{author}</p>
-                <p class="rating" alt="">{rating}</p>
+                <p className="author">{author}</p>
+                <p className="rating" alt="">{rating} out of 5</p>
               </div>
             )
           }))}

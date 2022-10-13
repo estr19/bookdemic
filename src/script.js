@@ -1,13 +1,4 @@
-window.onscroll = function() {myFunction()};
-let navbar = document.getElementById("stickyTop");
-let sticky = navbar.offsetTop;
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+
 
 const searchInputTwo = document.getElementById("search-two");
 const mtgString = document.querySelector("#mtgString");
@@ -34,7 +25,7 @@ searchInputTwo.addEventListener("keyup", function(event) {
 });
 
 function meetingCountdown() {
-  const meetingDate = new Date("2022-05-14T07:00:00Z"); //date in UTC format (hence the Z at the end of the date)
+  const meetingDate = new Date("2022-11-12T07:00:00Z"); //date in UTC format (hence the Z at the end of the date)
   const today = new Date();
   const difference = meetingDate - today;
 
@@ -256,20 +247,3 @@ function play() {
     }
   }
 }
-
-const quotebutton = document.querySelector("#quotebutton");
-const quotes = [
-  "Раньше я мало думала о смерти... но, по-моему, отдать жизнь за любимого человека — не худшая смерть.",
-  "Ты мой личный сорт героина.",
-  "— Лев влюбился в бедную овечку. — Какая глупая овечка. — Ну а лев — просто мазохист.",
-  "— Я лишь сказал, что нам нельзя дружить, а не что я не хочу. — И что это значит? — Ну, если ты умная, держись от меня подальше.",
-  "— Ты ведь из Аризоны, верно? — Да. — Я думала, в Аризоне все загорелые. — Да, может, за это меня и вышвырнули.",
-  "Деньги, секс, деньги, секс, ...кот.",
-  "Ла-Пуш, детка, это Ла-Пууш.",
-  "— Сколько тебе лет? — Семнадцать… — И давно тебе семнадцать? — Уже да..."
-];
-
-quotebutton.addEventListener("click", () => {
-    let i = Math.floor(Math.random() * quotes.length);
-    quotebutton.textContent = quotes[i];
-})
