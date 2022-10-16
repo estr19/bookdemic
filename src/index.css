@@ -4,49 +4,29 @@
 }
 
 .App {
-  width: 100vw;
+  width: 100%;
 }
 
 :root {
+	--star-size: 2.25em;
   --star-color: #9B3675;
-  --star-background: #d0c1d7;
+  --star-background: #e8e0eb;
 }
 
-.Stars {
-  font-size: 2.25em;
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
+ .Stars {
+	 --percent: calc(var(--rating) / 5 * 100%);
+	 font-size: var(--star-size);
+   width: 100%;
+	 font-family: 'Poppins', sans-serif;
+   text-align: center;
 }
 
-.Stars::before {
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  content: '★★★★★';
-  letter-spacing: 3px;
-  width: 100%;
-  text-align: center;
-}
-
-.gradient {
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  color: rgba(255, 255, 255, 0);
-  background: linear-gradient(
-    to right,
-    #9B3675 50%,
-    #d0c1d7 50%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* color: rgba(255, 255, 255, 0); */
-  /* background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-background) var(--percent)); */
-  /* -webkit-transition: 1.5s;
-  -moz-transition: 1.5s;
-  -o-transition: 1.5s;
-  transition: 1.5s; */
+ .Stars::before {
+	 content: '★★★★★';
+	 background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-background) var(--percent));
+   background-clip: text;
+	 -webkit-background-clip: text;
+	 -webkit-text-fill-color: transparent;
 }
 
 body {

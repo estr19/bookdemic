@@ -14,22 +14,29 @@ function App() {
   const music = new Audio(song);
   music.loop = true;
   let i = 0;
-  let bookRating;
 
-  const ratingStyle = {
-    decStars: {
-      content: '★★★★★',
-      color: 'rgba(255, 255, 255, 0)',
-      background: `linear-gradient(to right, #9B3675 ${bookRating*20}, #d0c1d7 ${100-bookRating*20})`,
-      // WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      // letter-spacing: 3px;
-      width: '100%',
-      textAlign: 'center',
-    }
-  }
+  // const ratingStyle = {
+  //   decStars: {
+  //     content: '★★★★★',
+  //     color: 'rgba(255, 255, 255, 0)',
+  //     background: `linear-gradient(to right, #9B3675 50%, #d0c1d7 50%)`,
+  //     backgroundClip: 'text',
+  //     WebkitBackgroundClip: 'text',
+  //     WebkitTextFillColor: 'transparent',
+  //     letterSpacing: '3px',
+  //     width: '100%',
+  //     textAlign: 'center',
+  //     'decStars::before': {
+  //       backgroundClip: 'text',
+  //       WebkitBackgroundClip: 'text',
+  //       WebkitTextFillColor: 'transparent',
+  //       content: '★★★★★',
+  //       letterSpacing: '3px',
+  //       width: '100%',
+  //       textAlign: 'center',
+  //     }
+  //   }
+  // }
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -163,8 +170,8 @@ function App() {
                     >"{name}"</a>
                 </p>
                 <p className="author">{author}</p>
-                <p className="rating">{bookRating} out of 5</p>
-                <div style={ratingStyle.decStars}></div>
+                <p className="rating"></p>
+                <div className="Stars" style={{'--rating': `${bookRating}`}} title={bookRating === '0' ? 'Not yet rated' : `${bookRating} out of 5`} />
               </div>
             )
           }))}
