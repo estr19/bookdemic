@@ -4,25 +4,56 @@ import { quotes } from './quotes';
 import song from "./lullaby.mp3";
 
 function App() {
+  const [myBooks] = useState(books);
   const [quote, setQuote] = useState();
   const [showTime, setShowTime] = useState([]);
+  const [mySearch, setMySearch] = useState('');
   const [showQuote, setShowQuote] = useState(false);
   const [showDiscussion, setShowDiscussion] = useState(false);
   const playPause = document.getElementById("playPause");
   const music = new Audio(song);
   music.loop = true;
   let i = 0;
+  let bookRating;
 
-  // window.onscroll = () => {
-  //   let navbar = document.getElementById("stickyTop");
-  //   let sticky = navbar.offsetTop;
-  //   if (window.pageYOffset >= sticky) {
-  //     navbar.classList.add("sticky")
-  //   } else {
-  //     navbar.classList.remove("sticky");
-  //   }
-  // };
-  
+  const ratingStyle = {
+    decStars: {
+      content: '★★★★★',
+      color: 'rgba(255, 255, 255, 0)',
+      background: `linear-gradient(to right, #9B3675 ${bookRating*20}, #d0c1d7 ${100-bookRating*20})`,
+      // WebkitBackgroundClip: 'text',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      // letter-spacing: 3px;
+      width: '100%',
+      textAlign: 'center',
+    }
+  }
+
+  const handleChange = (e) => {
+    setMySearch(e.target.value);
+  }
+
+  const filteredBooks = !mySearch
+    ? myBooks
+    : myBooks.filter(book => {
+    return (
+      book
+      .name
+      .toLowerCase()
+      .includes(mySearch.toLowerCase()) ||
+      book
+      .author
+      .toLowerCase()
+      .includes(mySearch.toLowerCase()) ||
+      book
+      .month
+      .toLowerCase()
+      .includes(mySearch.toLowerCase())
+    );
+  });
+
   const handleMusicClick = () => {
     if (i === 0) {
       i = 1;
@@ -90,6 +121,8 @@ function App() {
         </div>
         <div id="input-container">
           <input
+            onChange={(e) => handleChange(e)}
+            value={mySearch}
             type="text"
             name="search"
             id="search-two"
@@ -109,8 +142,8 @@ function App() {
       </div>
 
       <div className="container">
-        {books.map((element => {
-            const {id, name, author, month, rating, cover, link} = element;
+        {filteredBooks.map((book => {
+            const {id, name, author, month, bookRating, cover, link} = book;
             return (
               <div className='book' key={id}>
                 <div className="pictures">
@@ -130,7 +163,8 @@ function App() {
                     >"{name}"</a>
                 </p>
                 <p className="author">{author}</p>
-                <p className="rating" alt="">{rating} out of 5</p>
+                <p className="rating">{bookRating} out of 5</p>
+                <div style={ratingStyle.decStars}></div>
               </div>
             )
           }))}
