@@ -35,7 +35,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 0px;
+  margin: 0;
 }
 
 #stickyTop {
@@ -68,15 +68,16 @@ p#nextMtg {
   overflow-wrap: break-word;
   align-items: center;
   color: #d0c1d7;
-  margin: .75em;
+  margin: .5em;
   font-size: 1.5em;
 }
 
 #playPause {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   margin: 0em .5em;
   line-height: 150%;
-  border: none;
-  background: transparent;
   font-size: 2em;
   color: #d0c1d7;
 }
@@ -87,68 +88,69 @@ p#nextMtg {
 }
 
 button {
-  border: none;
-  padding: 0;
   background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.header {
+/* .header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
   padding-top: 60px;
-}
+} */
 
 .title {
   display: flex;
   flex-flow: column;
   flex-direction: wrap;
   justify-content: center;
-  margin: 15px;
+  margin: 1em;
 }
 
-.countdown {
+/* .countdown {
   flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin: 5px;
-/*   width: 95%; */
-}
+  margin: .25em;
+  width: 95%;
+} */
 
-.readingTimer {
+/* .readingTimer {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
   flex: 1 1 auto;
-}
+} */
 
-#triviaGame {
+/* #triviaGame {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   flex: 1 1 auto;
-}
+} */
 
-p#rTimer {
+/* p#rTimer {
   font-size: 1.5em;
   color: #9B3675;
-}
+} */
 
-#readingBtn {
+/* #readingBtn {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
-}
+} */
 
-#btn15, #btn30, #btn60 {
-/*   flex: 0 1 auto; */
+/* #btn15, #btn30, #btn60 {
+  flex: 0 1 auto;
   background-color: #e8e0eb;
   color: #022E57;
   max-width: 100px;
@@ -158,38 +160,38 @@ p#rTimer {
   border: 2px solid #022E57;
   border-radius: 10px;
   margin: 10px;
-}
+} */
 
-#btn15:hover, #btn30:hover, #btn60:hover {
+/* #btn15:hover, #btn30:hover, #btn60:hover {
   cursor: pointer;
   background-color: #022E57;
   border: 2px solid #022E57;
   color: #E8E0EB;
-}
+} */
 
-#inputRTimer {
+/* #inputRTimer {
   max-width: 250px;
   border: 2px solid #022E57;
-}
+} */
 
-#trivia {
+/* #trivia {
   flex: 1;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   margin: 5px;
-/*   width: 95%; */
-}
+  width: 95%;
+} */
 
-h3 {
+/* h3 {
   text-align: center;
   word-break: break-word;
   font-family: "Acme", sans-serif;
   font-size: 1em;
   color: #022E57;
   margin: 0px;
-}
+} */
 
 figure {
   display: flex;
@@ -207,13 +209,13 @@ figcaption {
 }
 
 #description {
-  margin: 15px 0px 15px 0px;
+  margin: 0;
   color: #000000;
   font-family: "Acme", sans-serif;
   font-size: 1.75em;
 }
 
-#play {
+/* #play {
   display: flex;
   align-items: center;
   background: none;
@@ -222,11 +224,7 @@ figcaption {
   border: 0px;
   padding: 0px 10px;
   margin: 0px;
-}
-
-button:hover {
-  cursor: pointer;
-}
+} */
 
 #input-container {
   display: flex;
@@ -246,26 +244,26 @@ input {
   border-radius: 10px;
 }
 
-#question {
+/* #question {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5em;
   padding: 5px;
   min-width: 350px;
-/*   flex: 1; */
-}
+  flex: 1;
+} */
 
-#guess {
+/* #guess {
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 40%;
   max-width: 220px;
-}
+} */
 
-#playbutton {
+/* #playbutton {
   flex: 0 1 auto;
   display: flex;
   align-items: center;
@@ -278,14 +276,14 @@ input {
   border: 2px solid #9B3675;
   border-radius: 10px;
   padding: 3px 12px;
-}
+} */
 
-#playbutton:hover {
+/* #playbutton:hover {
   cursor: pointer;
   background-color: #9B3675;
   border: 2px solid #9B3675;
   color: #E8E0EB;
-}
+} */
 
 #quote {
   display: flex;
@@ -295,6 +293,7 @@ input {
 #quotebutton {
   background-color: #e8e0eb;
   color: #022E57;
+  cursor: pointer;
   padding: 10px;
   font-family: "Otomanopee One", 'Oswald', sans-serif;
   font-size: 1.5em;
@@ -304,16 +303,14 @@ input {
 }
 
 #quotebutton:hover {
-  cursor: pointer;
   background-color: #022E57;
-  border: 2px solid #022E57;
   color: #E8E0EB;
 }
 
 h1 {
   display: flex;
   justify-content: center;
-  margin: 1rempx;
+  margin: 1em;
   text-align: center;
   word-break: break-word;
   font-family: "Twilight", "Architects Daughter", cursive;
@@ -331,6 +328,11 @@ p {
   margin: 0px;
 }
 
+.author {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
 .twilight {
   font-family: "Twilight";
   font-weight: bolder;
@@ -340,9 +342,9 @@ p.buttontext {
   font-size: 1em;
 }
 
-.buttontext {
+/* .buttontext {
   color: #9B3675;
-}
+} */
 
 a {
   color: #022E57;
@@ -356,23 +358,13 @@ img {
   height: 475px;
 }
 
-img#picPlay {
+/* img#picPlay {
   background-color: none;
   margin: 0px;
   border: none;
   height: 60px;
   width: 60px;
-}
-
-.rating {
-  color: #9B3675;
-  font-weight: bold;
-}
-
-.pictures {
-  display: flex;
-  justify-content: center;
-}
+} */
 
 .container {
   display: flex;
@@ -383,6 +375,11 @@ img#picPlay {
   margin: 10px;
 }
 
+.pictures {
+  display: flex;
+  justify-content: center;
+}
+
 .book {
   display: flex;
   justify-content: center;
@@ -391,26 +388,22 @@ img#picPlay {
   margin: 0px 15px 20px 15px;
 }
 
-.swal2-html-container,
+/* .swal2-html-container,
 #swal2-html-container .swal2-title {
   color: white;
   text-align: center;
   font-family: "Architects Daughter", cursive;
-}
+} */
 
-button.swal2-confirm.swal2-styled {
+/* button.swal2-confirm.swal2-styled {
   background-color: #9B3675;
   color: white;
   font-family: "Architects Daughter", cursive;
-}
+} */
 
-img.swal2-image {
+/* img.swal2-image {
   border: none;
-}
-
-#map{
-  display: none;
-}
+} */
 
 @media all and (max-width: 900px) {
   body {
@@ -468,14 +461,14 @@ img.swal2-image {
     width: 98%;
   }
 
-    #quotebutton {
+  #quotebutton {
     border: 1px solid #022E57;
     margin-bottom: 10px;
   }
   
-  .block {
+  /* .block {
     padding: 0px 10px;
-  }
+  } */
 
   p {
     flex: 1;
@@ -513,7 +506,7 @@ img.swal2-image {
 
 @media all and (max-width: 500px) {  
   body {
-    font-size: 10px;
+    font-size: 9px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -545,14 +538,14 @@ img.swal2-image {
     flex-direction: row;
   }
 
-  .element {
+  /* .element {
     margin: 0px;
     padding: 0px;
-  }
+  } */
 
-  .block {
+  /* .block {
     padding: 5px;
-  }
+  } */
 
   #playbutton {
     border: 1px solid #9B3675;

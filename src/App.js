@@ -123,7 +123,7 @@ function App() {
     <div className="App">
       <div id="stickyTop">
         <div id='top'>
-          <button onClick={handleMusicClick}><i id="playPause" className="far fa-play-circle"></i></button>
+          <button onClick={handleMusicClick} title='Play our anthem'><i id="playPause" className="far fa-play-circle"></i></button>
           <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>November 12th</span>}</p>
         </div>
         <div id="input-container">
@@ -170,7 +170,6 @@ function App() {
                     >"{name}"</a>
                 </p>
                 <p className="author">{author}</p>
-                <p className="rating"></p>
                 <div className="Stars" style={{'--rating': `${bookRating}`}} title={bookRating === '0' ? 'Not yet rated' : `${bookRating} out of 5`} />
               </div>
             )
