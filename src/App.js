@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { books } from './books';
 import { quotes } from './quotes';
-import song from "./lullaby.mp3";
+import lullaby from "./lullaby.mp3";
 
 function App() {
   const [myBooks] = useState(books);
@@ -12,32 +12,8 @@ function App() {
   const [showQuote, setShowQuote] = useState(false);
   const [showDiscussion, setShowDiscussion] = useState(false);
   const playPause = document.getElementById("playPause");
-  const music = new Audio(song);
-  music.loop = true;
-  let i = 0;
-
-  // const ratingStyle = {
-  //   decStars: {
-  //     content: '★★★★★',
-  //     color: 'rgba(255, 255, 255, 0)',
-  //     background: `linear-gradient(to right, #9B3675 50%, #d0c1d7 50%)`,
-  //     backgroundClip: 'text',
-  //     WebkitBackgroundClip: 'text',
-  //     WebkitTextFillColor: 'transparent',
-  //     letterSpacing: '3px',
-  //     width: '100%',
-  //     textAlign: 'center',
-  //     'decStars::before': {
-  //       backgroundClip: 'text',
-  //       WebkitBackgroundClip: 'text',
-  //       WebkitTextFillColor: 'transparent',
-  //       content: '★★★★★',
-  //       letterSpacing: '3px',
-  //       width: '100%',
-  //       textAlign: 'center',
-  //     }
-  //   }
-  // }
+  const song = useRef(new Audio(lullaby));
+  let k = 0;
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -63,16 +39,14 @@ function App() {
   });
 
   const handleMusicClick = () => {
-    if (i === 0) {
-      i = 1;
-      music.play();
-      music.loop = true;
+    if (k === 0) {
+      k = 1;
+      song.current.play();
       playPause.removeAttribute("class");
       playPause.setAttribute("class", "far fa-pause-circle");
     } else {
-      i = 0;
-      music.pause();
-      music.loop = false;
+      k = 0;
+      song.current.pause();
       playPause.removeAttribute("class");
       playPause.setAttribute("class", "far fa-play-circle");
     }
