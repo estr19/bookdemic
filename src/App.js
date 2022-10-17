@@ -83,6 +83,22 @@ function App() {
     setShowQuote(true);
   }
 
+  const getBackgroundColor = (theme) => {
+    if (theme === 'halloween') return '#F75F1C';
+    if (theme === 'holidays') return '#e4181e';
+    if (theme === 'trueCrime') return '#648eac';
+    if (theme === 'phoenix') return 'linear-gradient(0.33turn, #E5B2EF, #B5A6EA, #A7CDF5, #CEE6C3, #F3EECC, #F3C2C0)';
+    return '#11144c';
+  }
+
+  const getColor = (theme) => {
+    // if (theme === 'halloween') return '#F75F1C';
+    // if (theme === 'holidays') return '#fde28e ';
+    // if (theme === 'trueCrime') return '#648eac';
+    if (theme === 'phoenix' || theme === 'halloween') return '#000000';
+    return '#FFFFFF';
+  }
+
   const meetingCountdown = () => {
     let newObjects = [];
     let showDate = new Date("2022-11-12T07:00:00Z");
@@ -150,7 +166,7 @@ function App() {
 
       <div className="container">
         {filteredBooks.map((book => {
-            const {id, name, author, month, bookRating, cover, link} = book;
+            const {id, name, author, month, bookRating, cover, link, theme} = book;
             return (
               <div className='book' key={id}>
                 <div className="pictures">
@@ -159,7 +175,7 @@ function App() {
                       src={cover}
                       alt={name}
                     />
-                    <figcaption>{month}</figcaption>
+                    <figcaption style={{ 'background': getBackgroundColor(theme), 'color': getColor(theme)}}>{month}</figcaption>
                   </figure>
                 </div>
                 <p>

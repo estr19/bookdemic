@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Twilight';
-  src: url('/src/LD\ Twylight.ttf')
+  font-family: "Twilight";
+  src: url("/src/LD\ Twylight.ttf");
 }
 
 .App {
@@ -8,25 +8,29 @@
 }
 
 :root {
-	--star-size: 2.25em;
-  --star-color: #9B3675;
+  --star-size: 2.25em;
+  --star-color: #9b3675;
   --star-background: #e8e0eb;
 }
 
- .Stars {
-	 --percent: calc(var(--rating) / 5 * 100%);
-	 font-size: var(--star-size);
-   width: 100%;
-	 font-family: 'Poppins', sans-serif;
-   text-align: center;
+.Stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  font-size: var(--star-size);
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
- .Stars::before {
-	 content: '★★★★★';
-	 background: linear-gradient(90deg, var(--star-color) var(--percent), var(--star-background) var(--percent));
-   background-clip: text;
-	 -webkit-background-clip: text;
-	 -webkit-text-fill-color: transparent;
+.Stars::before {
+  content: "★★★★★";
+  background: linear-gradient(
+    90deg,
+    var(--star-color) var(--percent),
+    var(--star-background) var(--percent)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body {
@@ -41,11 +45,11 @@ body {
 #stickyTop {
   flex: 1 1 auto;
   /* overflow: hidden; */
-  background-color: #022E57;
+  background-color: #022e57;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   text-align: center;
   text-decoration: none;
 }
@@ -57,8 +61,8 @@ body {
 #mtgString {
   display: flex;
   align-items: center;
-  margin: 0em .75em;
-  color: #FFFFFF;
+  margin: 0em 0.75em;
+  color: #ffffff;
   font-size: 1em;
 }
 
@@ -68,7 +72,7 @@ p#nextMtg {
   overflow-wrap: break-word;
   align-items: center;
   color: #d0c1d7;
-  margin: .5em;
+  margin: 0.5em;
   font-size: 1.5em;
 }
 
@@ -76,7 +80,7 @@ p#nextMtg {
   background: transparent;
   border: none;
   cursor: pointer;
-  margin: 0em .5em;
+  margin: 0em 0.5em;
   line-height: 150%;
   font-size: 2em;
   color: #d0c1d7;
@@ -201,11 +205,12 @@ figure {
 }
 
 figcaption {
-  background-color: #11144C;
+  background-color: #11144c;
   color: white;
-  font: italic smaller sans-serif;
+  font: smaller sans-serif;
   padding: 3px;
   text-align: center;
+  font-weight: bold;
 }
 
 #description {
@@ -240,7 +245,7 @@ input {
   background-color: #e8e0eb;
   padding: 10px;
   font-size: 1em;
-  border: 2px solid #022E57;
+  border: 2px solid #022e57;
   border-radius: 10px;
 }
 
@@ -292,19 +297,19 @@ input {
 
 #quotebutton {
   background-color: #e8e0eb;
-  color: #022E57;
+  color: #022e57;
   cursor: pointer;
   padding: 10px;
-  font-family: "Otomanopee One", 'Oswald', sans-serif;
+  font-family: "Otomanopee One", "Oswald", sans-serif;
   font-size: 1.5em;
-  border: 2px solid #022E57;
+  border: 2px solid #022e57;
   /* margin-bottom: 1.5rem; */
   border-radius: 10px;
 }
 
 #quotebutton:hover {
-  background-color: #022E57;
-  color: #E8E0EB;
+  background-color: #022e57;
+  color: #e8e0eb;
 }
 
 h1 {
@@ -315,7 +320,7 @@ h1 {
   word-break: break-word;
   font-family: "Twilight", "Architects Daughter", cursive;
   font-size: 3.5em;
-  color: #022E57;
+  color: #022e57;
 }
 
 p {
@@ -324,7 +329,7 @@ p {
   word-break: break-word;
   font-family: "Acme", sans-serif;
   font-size: 2.25em;
-  color: #022E57;
+  color: #022e57;
   margin: 0px;
 }
 
@@ -347,12 +352,12 @@ p.buttontext {
 } */
 
 a {
-  color: #022E57;
+  color: #022e57;
   text-decoration: none;
 }
 
 img {
-  border: 4mm ridge #9B72AA;
+  border: 4mm ridge #9b72aa;
   margin-bottom: 10px;
   width: 310px;
   height: 475px;
@@ -421,7 +426,7 @@ img {
     display: flex;
     justify-content: center;
     width: 50%;
-    padding: .5em;
+    padding: 0.5em;
   }
 
   .header {
@@ -462,10 +467,10 @@ img {
   }
 
   #quotebutton {
-    border: 1px solid #022E57;
+    border: 1px solid #022e57;
     margin-bottom: 10px;
   }
-  
+
   /* .block {
     padding: 0px 10px;
   } */
@@ -504,7 +509,7 @@ img {
   }
 }
 
-@media all and (max-width: 500px) {  
+@media all and (max-width: 500px) {
   body {
     font-size: 9px;
     display: flex;
@@ -548,13 +553,13 @@ img {
   } */
 
   #playbutton {
-    border: 1px solid #9B3675;
+    border: 1px solid #9b3675;
     border-radius: 10px;
     padding: 10px 15px;
   }
-  
+
   #quotebutton {
-    border: 1px solid #022E57;
+    border: 1px solid #022e57;
     margin-bottom: 10px;
   }
 
@@ -563,7 +568,7 @@ img {
     justify-content: center;
     margin: 0px 5px;
     padding: 5px;
-    border: 1px solid #022E57;
+    border: 1px solid #022e57;
     border-radius: 10px;
   }
 
@@ -593,7 +598,7 @@ img {
   }
 
   img {
-    border: 3mm ridge #9B72AA;
+    border: 3mm ridge #9b72aa;
     width: 105px;
     height: 161px;
   }
