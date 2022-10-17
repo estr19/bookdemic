@@ -8,6 +8,7 @@ function App() {
   const [quote, setQuote] = useState();
   const [showTime, setShowTime] = useState([]);
   const [mySearch, setMySearch] = useState('');
+  const [visible, setVisible] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
   const [showDiscussion, setShowDiscussion] = useState(false);
   const playPause = document.getElementById("playPause");
@@ -135,6 +136,21 @@ function App() {
     return () => clearInterval(tick);
   });
 
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) setVisible(true)
+    else if (scrolled <= 300) setVisible(false)
+  };
+  
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+  };
+  
+  window.addEventListener('scroll', toggleVisible);
+
   return (
     <div className="App">
       <div id="stickyTop">
@@ -191,6 +207,10 @@ function App() {
             )
           }))}
       </div>
+      <button className='scrollBack' onClick={scrollToTop} 
+        style={{display: visible ? 'inline' : 'none'}} >
+        <i className='fa-solid fa-circle-arrow-up'></i>
+      </button>
     </div>
   );
 }
