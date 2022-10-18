@@ -11,7 +11,7 @@ function App() {
   const [visible, setVisible] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
   const [showDiscussion, setShowDiscussion] = useState(false);
-  const playPause = document.getElementById("playPause");
+  const playPause = document.getElementById("playPauseBtn");
   const song = useRef(new Audio(lullaby));
   let k = 0;
 
@@ -42,13 +42,11 @@ function App() {
     if (k === 0) {
       k = 1;
       song.current.play();
-      playPause.removeAttribute("class");
-      playPause.setAttribute("class", "far fa-pause-circle");
+      playPause.innerHTML = 'pause_circle';
     } else {
       k = 0;
       song.current.pause();
-      playPause.removeAttribute("class");
-      playPause.setAttribute("class", "far fa-play-circle");
+      playPause.innerHTML = 'play_circle';
     }
   };
 
@@ -129,7 +127,7 @@ function App() {
     <div className="App">
       <div id="stickyTop">
         <div id='top'>
-          <button onClick={handleMusicClick} title='Play our anthem'><i id="playPause" className="far fa-play-circle"></i></button>
+          <button onClick={handleMusicClick} title='Play our anthem'><span id='playPauseBtn' className="material-symbols-outlined">play_circle</span></button>
           <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>November 12th</span>}</p>
         </div>
         <div id="input-container">
@@ -183,7 +181,7 @@ function App() {
       </div>
       <button className='scrollBack' onClick={scrollToTop} 
         style={{display: visible ? 'inline' : 'none'}} >
-        <i className='fa-solid fa-circle-arrow-up'></i>
+        <span className="material-symbols-outlined">arrow_upward</span>
       </button>
     </div>
   );

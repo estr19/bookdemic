@@ -76,7 +76,7 @@ p#nextMtg {
   font-size: 1.5em;
 }
 
-#playPause {
+.material-symbols-outlined {
   background: transparent;
   border: none;
   cursor: pointer;
@@ -208,7 +208,7 @@ figcaption {
   background-color: #11144c;
   color: white;
   font: smaller sans-serif;
-  padding: 3px;
+  padding: .5em;
   text-align: center;
   font-weight: bold;
 }
@@ -229,8 +229,6 @@ button.scrollBack {
   cursor: pointer;
   font-weight: 700;
   font-size: 1em;
-  margin: .5em;
-  padding: .7em 1em;
   border-radius: 10px;
 }
 
@@ -317,7 +315,6 @@ input {
   font-family: "Otomanopee One", "Oswald", sans-serif;
   font-size: 1.5em;
   border: 2px solid #022e57;
-  /* margin-bottom: 1.5rem; */
   border-radius: 10px;
 }
 

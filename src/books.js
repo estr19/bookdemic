@@ -271,7 +271,7 @@ export const books = [
     name: 'A Little Life',
     author: 'Hanya Yanagihara',
     month: 'July 2020',
-    bookRating: '0',
+    bookRating: 0,
     cover: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446469353l/22822858._SY475_.jpg',
     link: 'https://www.goodreads.com/book/show/22822858-a-little-life',
   },
