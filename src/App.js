@@ -10,8 +10,8 @@ function App() {
   const [mySearch, setMySearch] = useState('');
   const [visible, setVisible] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
+  const [playLogo, setPlayLogo] = useState('play_circle');
   const [showDiscussion, setShowDiscussion] = useState(false);
-  const playPause = document.getElementById("playPauseBtn");
   const song = useRef(new Audio(lullaby));
   let k = 0;
 
@@ -23,18 +23,9 @@ function App() {
     ? myBooks
     : myBooks.filter(book => {
     return (
-      book
-      .name
-      .toLowerCase()
-      .includes(mySearch.toLowerCase()) ||
-      book
-      .author
-      .toLowerCase()
-      .includes(mySearch.toLowerCase()) ||
-      book
-      .month
-      .toLowerCase()
-      .includes(mySearch.toLowerCase())
+      book.name.toLowerCase().includes(mySearch.toLowerCase()) ||
+      book.author.toLowerCase().includes(mySearch.toLowerCase()) ||
+      book.month.toLowerCase().includes(mySearch.toLowerCase())
     );
   });
 
@@ -42,11 +33,11 @@ function App() {
     if (k === 0) {
       k = 1;
       song.current.play();
-      playPause.innerHTML = 'pause_circle';
+      setPlayLogo('pause_circle');
     } else {
       k = 0;
       song.current.pause();
-      playPause.innerHTML = 'play_circle';
+      setPlayLogo('play_circle');
     }
   };
 
@@ -54,22 +45,6 @@ function App() {
     let i = Math.floor(Math.random() * quotes.length);
     setQuote(quotes[i]);
     setShowQuote(true);
-  }
-
-  const getBackgroundColor = (theme) => {
-    if (theme === 'halloween') return '#F75F1C';
-    if (theme === 'holidays') return '#e4181e';
-    if (theme === 'trueCrime') return '#648eac';
-    if (theme === 'phoenix') return 'linear-gradient(0.33turn, #E5B2EF, #B5A6EA, #A7CDF5, #CEE6C3, #F3EECC, #F3C2C0)';
-    return '#11144c';
-  }
-
-  const getColor = (theme) => {
-    // if (theme === 'halloween') return '#F75F1C';
-    // if (theme === 'holidays') return '#fde28e ';
-    // if (theme === 'trueCrime') return '#648eac';
-    if (theme === 'phoenix' || theme === 'halloween') return '#000000';
-    return '#FFFFFF';
   }
 
   const meetingCountdown = () => {
@@ -127,7 +102,7 @@ function App() {
     <div className="App">
       <div id="stickyTop">
         <div id='top'>
-          <button onClick={handleMusicClick} title='Play our anthem'><span id='playPauseBtn' className="material-symbols-outlined">play_circle</span></button>
+          <button onClick={handleMusicClick} title='Play our anthem'><span className="material-symbols-outlined">{playLogo}</span></button>
           <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>November 12th</span>}</p>
         </div>
         <div id="input-container">
@@ -157,24 +132,22 @@ function App() {
             const {id, name, author, month, bookRating, cover, link, theme} = book;
             return (
               <div className='book' key={id}>
-                <div className="pictures">
+                {/* <div className="pictures"> */}
                   <figure>
                     <img
                       src={cover}
                       alt={name}
                     />
-                    <figcaption style={{ 'background': getBackgroundColor(theme), 'color': getColor(theme)}}>{month}</figcaption>
+                    <figcaption className={theme}>{month}</figcaption>
                   </figure>
-                </div>
-                <p>
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noreferrer"
-                    >"{name}"</a>
-                </p>
-                <p className="author">{author}</p>
-                <div className="Stars" style={{'--rating': `${bookRating}`}} title={bookRating === '0' ? 'Not yet rated' : `${bookRating} out of 5`} />
+                {/* </div> */}
+                {/* <div className='letters'> */}
+                  <p>
+                    <a href={link} target="_blank" rel="noreferrer">"{name}"</a>
+                  </p>
+                  <p className="author">{author}</p>
+                  <div className="Stars" style={{'--rating': `${bookRating}`}} title={bookRating === '0' ? 'Not yet rated' : `${bookRating} out of 5`} />
+                {/* </div> */}
               </div>
             )
           }))}

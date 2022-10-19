@@ -44,7 +44,6 @@ body {
 
 #stickyTop {
   flex: 1 1 auto;
-  /* overflow: hidden; */
   background-color: #022e57;
   display: flex;
   align-items: center;
@@ -98,14 +97,6 @@ button {
   padding: 0;
 }
 
-/* .header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  padding-top: 60px;
-} */
-
 .title {
   display: flex;
   flex-flow: column;
@@ -114,93 +105,18 @@ button {
   margin: 1em;
 }
 
-/* .countdown {
-  flex: 1;
+.book {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  margin: .25em;
-  width: 95%;
-} */
-
-/* .readingTimer {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-} */
-
-/* #triviaGame {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
-} */
-
-/* p#rTimer {
-  font-size: 1.5em;
-  color: #9B3675;
-} */
-
-/* #readingBtn {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-} */
-
-/* #btn15, #btn30, #btn60 {
-  flex: 0 1 auto;
-  background-color: #e8e0eb;
-  color: #022E57;
-  max-width: 100px;
-  padding: 5px 10px;
-  font-family: "Otomanopee One", 'Oswald', sans-serif;
-  font-size: 1.5em;
-  border: 2px solid #022E57;
-  border-radius: 10px;
-  margin: 10px;
-} */
-
-/* #btn15:hover, #btn30:hover, #btn60:hover {
-  cursor: pointer;
-  background-color: #022E57;
-  border: 2px solid #022E57;
-  color: #E8E0EB;
-} */
-
-/* #inputRTimer {
-  max-width: 250px;
-  border: 2px solid #022E57;
-} */
-
-/* #trivia {
-  flex: 1;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 5px;
-  width: 95%;
-} */
-
-/* h3 {
-  text-align: center;
-  word-break: break-word;
-  font-family: "Acme", sans-serif;
-  font-size: 1em;
-  color: #022E57;
-  margin: 0px;
-} */
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 340px;
+  margin: 0 1em 1.25em 1em;
+}
 
 figure {
   display: flex;
   flex-flow: column;
-  padding: 5px;
+  padding: .25em;
   margin: auto;
 }
 
@@ -211,6 +127,24 @@ figcaption {
   padding: .5em;
   text-align: center;
   font-weight: bold;
+}
+
+.halloween {
+  background-color: #F75F1C;
+  color: #000000;
+}
+
+.holidays {
+  background-color: #e4181e;
+}
+
+.trueCrime {
+  background-color: #648eac;
+}
+
+.phoenix {
+  background: linear-gradient(0.33turn, #E5B2EF, #B5A6EA, #A7CDF5, #CEE6C3, #F3EECC, #F3C2C0);
+  color: #000000;
 }
 
 #description {
@@ -232,17 +166,6 @@ button.scrollBack {
   border-radius: 10px;
 }
 
-/* #play {
-  display: flex;
-  align-items: center;
-  background: none;
-  cursor: pointer;
-  font-size: 2.5em;
-  border: 0px;
-  padding: 0px 10px;
-  margin: 0px;
-} */
-
 #input-container {
   display: flex;
   justify-content: flex-end;
@@ -260,47 +183,6 @@ input {
   border: 2px solid #022e57;
   border-radius: 10px;
 }
-
-/* #question {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
-  padding: 5px;
-  min-width: 350px;
-  flex: 1;
-} */
-
-/* #guess {
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40%;
-  max-width: 220px;
-} */
-
-/* #playbutton {
-  flex: 0 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50%;
-  margin: 0px 15px;
-  background-color: #e8e0eb;
-  font-family: "Acme", sans-serif;
-  font-size: 2.25em;
-  border: 2px solid #9B3675;
-  border-radius: 10px;
-  padding: 3px 12px;
-} */
-
-/* #playbutton:hover {
-  cursor: pointer;
-  background-color: #9B3675;
-  border: 2px solid #9B3675;
-  color: #E8E0EB;
-} */
 
 #quote {
   display: flex;
@@ -358,10 +240,6 @@ p.buttontext {
   font-size: 1em;
 }
 
-/* .buttontext {
-  color: #9B3675;
-} */
-
 a {
   color: #022e57;
   text-decoration: none;
@@ -374,14 +252,6 @@ img {
   height: 475px;
 }
 
-/* img#picPlay {
-  background-color: none;
-  margin: 0px;
-  border: none;
-  height: 60px;
-  width: 60px;
-} */
-
 .container {
   display: flex;
   flex-direction: row;
@@ -391,34 +261,14 @@ img {
   margin: 10px;
 }
 
-.pictures {
+/* .pictures {
   display: flex;
   justify-content: center;
-}
+} */
 
-.book {
+/* .letters {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  width: 340px;
-  margin: 0px 15px 20px 15px;
-}
-
-/* .swal2-html-container,
-#swal2-html-container .swal2-title {
-  color: white;
-  text-align: center;
-  font-family: "Architects Daughter", cursive;
-} */
-
-/* button.swal2-confirm.swal2-styled {
-  background-color: #9B3675;
-  color: white;
-  font-family: "Architects Daughter", cursive;
-} */
-
-/* img.swal2-image {
-  border: none;
 } */
 
 @media all and (max-width: 900px) {
@@ -481,10 +331,6 @@ img {
     border: 1px solid #022e57;
     margin-bottom: 10px;
   }
-
-  /* .block {
-    padding: 0px 10px;
-  } */
 
   p {
     flex: 1;
@@ -553,15 +399,6 @@ img {
     display: flex;
     flex-direction: row;
   }
-
-  /* .element {
-    margin: 0px;
-    padding: 0px;
-  } */
-
-  /* .block {
-    padding: 5px;
-  } */
 
   #playbutton {
     border: 1px solid #9b3675;
