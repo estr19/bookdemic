@@ -12,7 +12,7 @@ export const books = [
     id: 32,
     name: 'Conversations with Friends',
     author: 'Sally Rooney',
-    month: ' 2022',
+    month: 'December 2022',
     bookRating: '-',
     cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1638729263i/32187419.jpg',
     link: 'https://www.goodreads.com/book/show/32187419-conversations-with-friends',
