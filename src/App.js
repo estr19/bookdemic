@@ -103,7 +103,7 @@ function App() {
       <div id="stickyTop">
         <div id='top'>
           <button onClick={handleMusicClick} title='Play our anthem'><span className="material-symbols-outlined">{playLogo}</span></button>
-          <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>November 12th</span>}</p>
+          <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>December 10th</span>}</p>
         </div>
         <div id="input-container">
           <input
