@@ -49,7 +49,7 @@ function App() {
 
   const meetingCountdown = () => {
     let newObjects = [];
-    let showDate = new Date("2022-11-12T07:00:00Z");
+    let showDate = new Date("2022-12-10T19:00:00Z");
     const today = new Date();
     const difference = showDate - today;
     
