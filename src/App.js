@@ -14,6 +14,9 @@ function App() {
   const [showDiscussion, setShowDiscussion] = useState(false);
   const song = useRef(new Audio(lullaby));
   let k = 0;
+  let showDate = new Date("2023-01-14T07:00:00Z");
+  const options = { month: 'long'};
+  let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -49,7 +52,6 @@ function App() {
 
   const meetingCountdown = () => {
     let newObjects = [];
-    let showDate = new Date("2022-12-10T19:00:00Z");
     const today = new Date();
     const difference = showDate - today;
     
@@ -103,7 +105,7 @@ function App() {
       <div id="stickyTop">
         <div id='top'>
           <button onClick={handleMusicClick} title='Play our anthem'><span className="material-symbols-outlined">{playLogo}</span></button>
-          <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>December 10th</span>}</p>
+          <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>{mtgDate}th</span>}</p>
         </div>
         <div id="input-container">
           <input
