@@ -14,7 +14,7 @@ function App() {
   const [showDiscussion, setShowDiscussion] = useState(false);
   const song = useRef(new Audio(lullaby));
   let k = 0;
-  let showDate = new Date("2023-01-14T07:00:00Z");
+  let showDate = new Date("2023-02-11T19:00:00Z");
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
 
@@ -134,7 +134,6 @@ function App() {
             const {id, name, author, month, bookRating, cover, link, theme} = book;
             return (
               <div className='book' key={id}>
-                {/* <div className="pictures"> */}
                   <figure>
                     <img
                       src={cover}
@@ -142,14 +141,11 @@ function App() {
                     />
                     <figcaption className={theme}>{month}</figcaption>
                   </figure>
-                {/* </div> */}
-                {/* <div className='letters'> */}
                   <p>
                     <a href={link} target="_blank" rel="noreferrer">"{name}"</a>
                   </p>
                   <p className="author">{author}</p>
                   <div className="Stars" style={{'--rating': `${bookRating}`}} title={bookRating === '0' ? 'Not yet rated' : `${bookRating} out of 5`} />
-                {/* </div> */}
               </div>
             )
           }))}
