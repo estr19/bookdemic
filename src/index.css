@@ -34,6 +34,15 @@
 }
 
 body {
+  background-image: linear-gradient(
+      rgba(208, 193, 215, .9),
+      rgba(208, 193, 215, .9)
+    ),
+    url('https://images.unsplash.com/photo-1533669955142-6a73332af4db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;  
   background-color: #d0c1d7;
   display: flex;
   justify-content: center;
@@ -127,6 +136,11 @@ figcaption {
   padding: .5em;
   text-align: center;
   font-weight: bold;
+}
+
+.cringe {
+  color: #000000;
+  background-color: #05C876;
 }
 
 .halloween {
