@@ -14,7 +14,7 @@ function App() {
   const [showDiscussion, setShowDiscussion] = useState(false);
   const song = useRef(new Audio(lullaby));
   let k = 0;
-  let showDate = new Date("2023-02-11T19:00:00Z");
+  let showDate = new Date("2023-03-11T07:00:00Z");
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
 
