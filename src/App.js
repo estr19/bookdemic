@@ -12,16 +12,17 @@ function App() {
   const [showQuote, setShowQuote] = useState(false);
   const [playLogo, setPlayLogo] = useState('play_circle');
   const [showDiscussion, setShowDiscussion] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const song = useRef(new Audio(lullaby));
   let k = 0;
 
-  const [showDate, setShowDate] = useState(new Date("2023-01-11T07:00:00Z"));
+  const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
-  let todayMonth = new Date().getMonth() + 1;
+  let todayMonth = new Date().getMonth();
   let todayYear = new Date().getFullYear();
 
-  // console.log(showDate);
+  console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -87,11 +88,19 @@ function App() {
     const tick = setTimeout(() => {
       let bookDate;
       for (let month = 0; month <= todayMonth; month++) {
-        if (month === todayMonth) {
+        if (month === todayMonth && todayMonth % 2 === 0) {
           let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
           date.setDate(14 - date.getDay());
           bookDate = date;
           setShowDate(date);
+          setLoading(false);
+        }
+        if (month === todayMonth && todayMonth % 2 === 1) {
+          let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
+          date.setDate(14 - date.getDay());
+          bookDate = date;
+          setShowDate(date);
+          setLoading(false);
         }
       }
       meetingCountdown(bookDate);
@@ -117,9 +126,25 @@ function App() {
   return (
     <div className="App">
       <div id="stickyTop">
-        <div id='top'>
-          <button onClick={handleMusicClick} title='Play our anthem'><span className="material-symbols-outlined">{playLogo}</span></button>
-          <p id="nextMtg">{showDiscussion ? 'Discussing the book at the moment 😁' : <span id='nextDiscussion'>Our next book discussion is in: <span id='mtgString'>{showTime.days} :   {showTime.hours} : {showTime.minutes} : {showTime.seconds}</span>{mtgDate}th</span>}</p>
+        <div id="top">
+          <button onClick={handleMusicClick} title="Play our anthem">
+            <span className="material-symbols-outlined">{playLogo}</span>
+          </button>
+          {isLoading ? <p className="nextMtg">L o a d i n g . . . </p> :
+          <p className="nextMtg">
+            {showDiscussion ? (
+              "Discussing the book at the moment 😁"
+            ) : (
+              <span id="nextDiscussion">
+                Our next book discussion is in:{" "}
+                <span id="mtgString">
+                  {showTime.days} : {showTime.hours} : {showTime.minutes} :{" "}
+                  {showTime.seconds}
+                </span>
+                {mtgDate}th
+              </span>
+            )}
+          </p>}
         </div>
         <div id="input-container">
           <input
@@ -135,37 +160,50 @@ function App() {
 
       <div className="title">
         <div id="quote">
-          <button onClick={handleQuoteClick} id="quotebutton">{showQuote ? `${quote}` : 'Click here for our favorite "Twilight" quotes!'}</button>
+          <button onClick={handleQuoteClick} id="quotebutton">
+            {showQuote
+              ? `${quote}`
+              : 'Click here for our favorite "Twilight" quotes!'}
+          </button>
         </div>
         <h1>Bookdemic "Book of the Month" Winners!</h1>
-        <p id="description">The stars
-          reveal our club's average rating.
-        </p>
+        <p id="description">The stars reveal our club's average rating.</p>
       </div>
 
       <div className="container">
-        {filteredBooks.map((book => {
-            const {id, name, author, month, bookRating, cover, link, theme} = book;
-            return (
-              <div className='book' key={id}>
-                  <figure>
-                    <img
-                      src={cover}
-                      alt={name}
-                    />
-                    <figcaption className={theme}>{month}</figcaption>
-                  </figure>
-                  <p>
-                    <a href={link} target="_blank" rel="noreferrer">"{name}"</a>
-                  </p>
-                  <p className="author">{author}</p>
-                  <div className="Stars" style={{'--rating': `${bookRating}`}} title={bookRating === '0' ? 'Not yet rated' : `${bookRating} out of 5`} />
-              </div>
-            )
-          }))}
+        {filteredBooks.map((book) => {
+          const { id, name, author, month, bookRating, cover, link, theme } =
+            book;
+          return (
+            <div className="book" key={id}>
+              <figure>
+                <img src={cover} alt={name} />
+                <figcaption className={theme}>{month}</figcaption>
+              </figure>
+              <p>
+                <a href={link} target="_blank" rel="noreferrer">
+                  "{name}"
+                </a>
+              </p>
+              <p className="author">{author}</p>
+              <div
+                className="Stars"
+                style={{ "--rating": `${bookRating}` }}
+                title={
+                  bookRating === "0"
+                    ? "Not yet rated"
+                    : `${bookRating} out of 5`
+                }
+              />
+            </div>
+          );
+        })}
       </div>
-      <button className='scrollBack' onClick={scrollToTop} 
-        style={{display: visible ? 'inline' : 'none'}} >
+      <button
+        className="scrollBack"
+        onClick={scrollToTop}
+        style={{ display: visible ? "inline" : "none" }}
+      >
         <span className="material-symbols-outlined">arrow_upward</span>
       </button>
     </div>

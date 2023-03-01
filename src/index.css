@@ -74,7 +74,7 @@ body {
   font-size: 1em;
 }
 
-p#nextMtg {
+.nextMtg {
   display: flex;
   justify-content: center;
   overflow-wrap: break-word;
