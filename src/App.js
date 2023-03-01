@@ -14,9 +14,14 @@ function App() {
   const [showDiscussion, setShowDiscussion] = useState(false);
   const song = useRef(new Audio(lullaby));
   let k = 0;
-  let showDate = new Date("2023-03-11T07:00:00Z");
+
+  const [showDate, setShowDate] = useState(new Date("2023-01-11T07:00:00Z"));
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
+  let todayMonth = new Date().getMonth() + 1;
+  let todayYear = new Date().getFullYear();
+
+  // console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -50,10 +55,10 @@ function App() {
     setShowQuote(true);
   }
 
-  const meetingCountdown = () => {
+    const meetingCountdown = (bookDate) => {
     let newObjects = [];
     const today = new Date();
-    const difference = showDate - today;
+    const difference = bookDate - today;
     
     let displayDays = Math.floor(difference / (1000 * 60 * 60 * 24));
     let displayHours = Math.floor((difference / (1000 * 60 * 60)) % 24);
@@ -80,7 +85,16 @@ function App() {
 
   useEffect(() => {
     const tick = setTimeout(() => {
-      meetingCountdown();
+      let bookDate;
+      for (let month = 0; month <= todayMonth; month++) {
+        if (month === todayMonth) {
+          let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
+          date.setDate(14 - date.getDay());
+          bookDate = date;
+          setShowDate(date);
+        }
+      }
+      meetingCountdown(bookDate);
     }, 1000);
     return () => clearInterval(tick);
   });
