@@ -19,10 +19,9 @@ function App() {
   const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
-  let todayMonth = new Date().getMonth();
   let todayYear = new Date().getFullYear();
 
-  console.log(showDate);
+  // console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -86,21 +85,41 @@ function App() {
 
   useEffect(() => {
     const tick = setTimeout(() => {
+      let todayMonth = new Date().getMonth();
       let bookDate;
       for (let month = 0; month <= todayMonth; month++) {
-        if (month === todayMonth && todayMonth % 2 === 0) {
-          let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
-          date.setDate(14 - date.getDay());
-          bookDate = date;
-          setShowDate(date);
-          setLoading(false);
-        }
-        if (month === todayMonth && todayMonth % 2 === 1) {
-          let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
-          date.setDate(14 - date.getDay());
-          bookDate = date;
-          setShowDate(date);
-          setLoading(false);
+        // console.log(new Date().getDate());
+        if (new Date().getDate() > 14 ) {
+          todayMonth = todayMonth + 1;
+          if (month === todayMonth && todayMonth % 2 === 0) {
+            let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
+          }
+          if (month === todayMonth && todayMonth % 2 === 1) {
+            let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
+          }
+        } else {
+          if (month === todayMonth && todayMonth % 2 === 0) {
+            let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
+          }
+          if (month === todayMonth && todayMonth % 2 === 1) {
+            let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
+          }
         }
       }
       meetingCountdown(bookDate);
