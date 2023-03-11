@@ -255,6 +255,7 @@ p.buttontext {
 }
 
 a {
+  cursor: pointer;
   color: #022e57;
   text-decoration: none;
 }

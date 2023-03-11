@@ -138,8 +138,7 @@ function App() {
               <span id="nextDiscussion">
                 Our next book discussion is in:{" "}
                 <span id="mtgString">
-                  {showTime.days} : {showTime.hours} : {showTime.minutes} :{" "}
-                  {showTime.seconds}
+                  {showTime.days} : {showTime.hours} : {showTime.minutes} : {showTime.seconds}
                 </span>
                 {mtgDate}th
               </span>
@@ -176,25 +175,25 @@ function App() {
             book;
           return (
             <div className="book" key={id}>
-              <figure>
-                <img src={cover} alt={name} />
-                <figcaption className={theme}>{month}</figcaption>
-              </figure>
-              <p>
-                <a href={link} target="_blank" rel="noreferrer">
-                  "{name}"
-                </a>
-              </p>
-              <p className="author">{author}</p>
-              <div
-                className="Stars"
-                style={{ "--rating": `${bookRating}` }}
-                title={
-                  bookRating === "0"
-                    ? "Not yet rated"
-                    : `${bookRating} out of 5`
-                }
-              />
+              <a href={link} target="_blank" rel="noreferrer">
+                <figure>
+                  <img src={cover} alt={name} />
+                  <figcaption className={theme}>{month}</figcaption>н
+                </figure>
+                <p>
+                    "{name}"
+                </p>
+                <p className="author">{author}</p>
+                <div
+                  className="Stars"
+                  style={{ "--rating": `${bookRating}` }}
+                  title={
+                    bookRating === "0"
+                      ? "Not yet rated"
+                      : `${bookRating} out of 5`
+                  }
+                />
+              </a>
             </div>
           );
         })}
