@@ -88,37 +88,41 @@ function App() {
       let todayMonth = new Date().getMonth();
       let bookDate;
       for (let month = 0; month <= todayMonth; month++) {
-        // console.log(new Date().getDate());
-        if (new Date().getDate() > 14 ) {
-          todayMonth = todayMonth + 1;
-          if (month === todayMonth && todayMonth % 2 === 0) {
-            let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
+        if (month === todayMonth) {
+          let date = new Date(Date.UTC(todayYear, month, 1));
+          date.setDate(14 - date.getDay());
+          if (date.getDate() >= new Date().getDate()) {
+            todayMonth = todayMonth + 1;
+            if (todayMonth % 2 === 1){
+              let date = new Date(Date.UTC(todayYear, month + 1, 1, 19, 0, 0, 0));
+              date.setDate(14 - date.getDay());
+              bookDate = date;
+              setShowDate(date);
+              setLoading(false);
+            }
+            if (todayMonth % 2 === 0){
+              let date = new Date(Date.UTC(todayYear, month + 1, 1, 7, 0, 0, 0));
+              date.setDate(14 - date.getDay());
+              bookDate = date;
+              setShowDate(date);
+              setLoading(false);
+            }
           }
-          if (month === todayMonth && todayMonth % 2 === 1) {
-            let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
-          }
-        } else {
-          if (month === todayMonth && todayMonth % 2 === 0) {
-            let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
-          }
-          if (month === todayMonth && todayMonth % 2 === 1) {
-            let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
+          if (date.getDate() < new Date().getDate()) {
+            if (todayMonth % 2 === 1){
+              let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
+              date.setDate(14 - date.getDay());
+              bookDate = date;
+              setShowDate(date);
+              setLoading(false);
+            }
+            if (todayMonth % 2 === 0){
+              let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
+              date.setDate(14 - date.getDay());
+              bookDate = date;
+              setShowDate(date);
+              setLoading(false);
+            }
           }
         }
       }
