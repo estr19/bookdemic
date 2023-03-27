@@ -91,9 +91,9 @@ function App() {
         if (month === todayMonth) {
           let date = new Date(Date.UTC(todayYear, month, 1));
           date.setDate(14 - date.getDay());
-          if (date.getDate() >= new Date().getDate()) {
           // console.log(date.getDate());
           // console.log(new Date().getDate());
+          if (date.getDate() <= new Date().getDate()) {
             todayMonth = todayMonth + 1;
             if (todayMonth % 2 === 1){
               let date = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
@@ -110,7 +110,7 @@ function App() {
               setLoading(false);
             }
           }
-          if (date.getDate() < new Date().getDate()) {
+          if (date.getDate() > new Date().getDate()) {
             if (todayMonth % 2 === 1){
               let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
               date.setDate(14 - date.getDay());
