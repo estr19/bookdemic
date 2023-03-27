@@ -21,7 +21,7 @@ function App() {
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
   let todayYear = new Date().getFullYear();
 
-  // console.log(showDate);
+  console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -92,16 +92,18 @@ function App() {
           let date = new Date(Date.UTC(todayYear, month, 1));
           date.setDate(14 - date.getDay());
           if (date.getDate() >= new Date().getDate()) {
+          // console.log(date.getDate());
+          // console.log(new Date().getDate());
             todayMonth = todayMonth + 1;
             if (todayMonth % 2 === 1){
-              let date = new Date(Date.UTC(todayYear, month + 1, 1, 19, 0, 0, 0));
+              let date = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
               date.setDate(14 - date.getDay());
               bookDate = date;
               setShowDate(date);
               setLoading(false);
             }
             if (todayMonth % 2 === 0){
-              let date = new Date(Date.UTC(todayYear, month + 1, 1, 7, 0, 0, 0));
+              let date = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
               date.setDate(14 - date.getDay());
               bookDate = date;
               setShowDate(date);
@@ -194,17 +196,16 @@ function App() {
 
       <div className="container">
         {filteredBooks.map((book) => {
-          const { id, name, author, month, bookRating, cover, link, theme } =
-            book;
+          const { id, name, author, month, bookRating, cover, link, theme } = book;
           return (
             <div className="book" key={id}>
               <a href={link} target="_blank" rel="noreferrer">
                 <figure>
                   <img src={cover} alt={name} />
-                  <figcaption className={theme}>{month}</figcaption>н
+                  <figcaption className={theme}>{month}</figcaption>
                 </figure>
                 <p>
-                    "{name}"
+                  "{name}"
                 </p>
                 <p className="author">{author}</p>
                 <div
