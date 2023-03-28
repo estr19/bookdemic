@@ -19,9 +19,10 @@ function App() {
   const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
+  let todayMonth = new Date().getMonth();
   let todayYear = new Date().getFullYear();
 
-  console.log(showDate);
+  // console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -85,46 +86,24 @@ function App() {
 
   useEffect(() => {
     const tick = setTimeout(() => {
-      let todayMonth = new Date().getMonth();
       let bookDate;
       for (let month = 0; month <= todayMonth; month++) {
-        if (month === todayMonth) {
-          let date = new Date(Date.UTC(todayYear, month, 1));
-          date.setDate(14 - date.getDay());
-          // console.log(date.getDate());
-          // console.log(new Date().getDate());
-          if (date.getDate() <= new Date().getDate()) {
-            todayMonth = todayMonth + 1;
-            if (todayMonth % 2 === 1){
-              let date = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
-              date.setDate(14 - date.getDay());
-              bookDate = date;
-              setShowDate(date);
-              setLoading(false);
-            }
-            if (todayMonth % 2 === 0){
-              let date = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
-              date.setDate(14 - date.getDay());
-              bookDate = date;
-              setShowDate(date);
-              setLoading(false);
-            }
+        if (new Date().getDate() > 14 ) {
+          if (month === todayMonth && todayMonth % 2 === 0) {
+            month = todayMonth + 1;
+            let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
           }
-          if (date.getDate() > new Date().getDate()) {
-            if (todayMonth % 2 === 1){
-              let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
-              date.setDate(14 - date.getDay());
-              bookDate = date;
-              setShowDate(date);
-              setLoading(false);
-            }
-            if (todayMonth % 2 === 0){
-              let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
-              date.setDate(14 - date.getDay());
-              bookDate = date;
-              setShowDate(date);
-              setLoading(false);
-            }
+          if (month === todayMonth && todayMonth % 2 === 1) {
+            month = todayMonth + 1;
+            let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
           }
         }
       }
@@ -196,7 +175,8 @@ function App() {
 
       <div className="container">
         {filteredBooks.map((book) => {
-          const { id, name, author, month, bookRating, cover, link, theme } = book;
+          const { id, name, author, month, bookRating, cover, link, theme } =
+            book;
           return (
             <div className="book" key={id}>
               <a href={link} target="_blank" rel="noreferrer">
@@ -205,7 +185,7 @@ function App() {
                   <figcaption className={theme}>{month}</figcaption>
                 </figure>
                 <p>
-                  "{name}"
+                    "{name}"
                 </p>
                 <p className="author">{author}</p>
                 <div
