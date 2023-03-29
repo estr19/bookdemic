@@ -22,7 +22,7 @@ function App() {
   let todayMonth = new Date().getMonth();
   let todayYear = new Date().getFullYear();
 
-  // console.log(showDate);
+  console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -99,6 +99,21 @@ function App() {
           }
           if (month === todayMonth && todayMonth % 2 === 1) {
             month = todayMonth + 1;
+            let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
+          }
+        } else {
+          if (month === todayMonth && todayMonth % 2 === 0) {
+            let date = new Date(Date.UTC(todayYear, month, 1, 19, 0, 0, 0));
+            date.setDate(14 - date.getDay());
+            bookDate = date;
+            setShowDate(date);
+            setLoading(false);
+          }
+          if (month === todayMonth && todayMonth % 2 === 1) {
             let date = new Date(Date.UTC(todayYear, month, 1, 7, 0, 0, 0));
             date.setDate(14 - date.getDay());
             bookDate = date;
