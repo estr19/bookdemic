@@ -124,7 +124,9 @@ button {
 
 figure {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: .25em;
   margin: auto;
 }
@@ -364,6 +366,7 @@ img {
   .book {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 230px;
   }
@@ -450,7 +453,8 @@ img {
 
   .book {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: column;
     width: 161px;
   }
