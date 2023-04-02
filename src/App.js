@@ -56,11 +56,19 @@ function App() {
     setShowQuote(true);
   }
 
-    const meetingCountdown = (bookDate) => {
-    let newObjects = [];
+  const meetingCountdown = () => {
+    let todate;
+    let timeObjects = [];
     const today = new Date();
-    const difference = bookDate - today;
-    
+    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 1)) todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
+    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 0)) todate = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
+    if ((new Date().getDate() > 14) && (todayMonth % 2 === 1)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
+    if ((new Date().getDate() > 14) && (todayMonth % 2 === 0)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
+    todate.setDate(14 - todate.getDay());
+    setShowDate(todate);
+    setLoading(false);
+
+    const difference = todate - today;
     let displayDays = Math.floor(difference / (1000 * 60 * 60 * 24));
     let displayHours = Math.floor((difference / (1000 * 60 * 60)) % 24);
     let displayMinutes = Math.floor((difference / 1000 / 60) % 60);
@@ -72,7 +80,7 @@ function App() {
     if (displaySeconds < 10) displaySeconds = "0" + displaySeconds;
 
     if (difference > 0) {
-      newObjects = {
+      timeObjects = {
         days: displayDays,
         hours: displayHours,
         minutes: displayMinutes,
@@ -81,47 +89,12 @@ function App() {
     } else {
       setShowDiscussion(true);
     }
-    return setShowTime(newObjects);
+    return setShowTime(timeObjects);
   }
 
   useEffect(() => {
     const tick = setTimeout(() => {
-      let bookDate;
-      for (let month = 0; month <= todayMonth; month++) {
-        if (new Date().getDate() <= 14) {
-          if ((month === todayMonth) && ((todayMonth % 2) === 1)) {
-            let date = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
-          }
-          if ((month === todayMonth) && ((todayMonth % 2) === 0)) {
-            let date = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
-          }
-        }
-        if (new Date().getDate() > 14) {
-          if (month === todayMonth && todayMonth % 2 === 1) {
-            let date = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
-          }
-          if (month === todayMonth && todayMonth % 2 === 0) {
-            let date = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
-            date.setDate(14 - date.getDay());
-            bookDate = date;
-            setShowDate(date);
-            setLoading(false);
-          }
-        }
-      }
-      meetingCountdown(bookDate);
+      meetingCountdown();
     }, 1000);
     return () => clearInterval(tick);
   });
