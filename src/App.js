@@ -12,17 +12,16 @@ function App() {
   const [showQuote, setShowQuote] = useState(false);
   const [playLogo, setPlayLogo] = useState('play_circle');
   const [showDiscussion, setShowDiscussion] = useState(false);
+  const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const [isLoading, setLoading] = useState(true);
   const song = useRef(new Audio(lullaby));
-  let k = 0;
-
-  const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
   let todayMonth = new Date().getMonth();
   let todayYear = new Date().getFullYear();
+  let k = 0;
 
-  console.log(showDate);
+  // console.log(showDate);
 
   const handleChange = (e) => {
     setMySearch(e.target.value);
@@ -60,8 +59,20 @@ function App() {
     let todate;
     let timeObjects = [];
     const today = new Date();
-    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 1)) todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
-    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 0)) todate = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
+    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 1)) {
+      todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
+      todate.setDate(14 - todate.getDay());
+      if (today > new Date(todate)) {
+        todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
+      }
+    }
+    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 0))  {
+      todate = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
+      todate.setDate(14 - todate.getDay());
+      if (today > new Date(todate)) {
+        todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
+      }
+    }
     if ((new Date().getDate() > 14) && (todayMonth % 2 === 1)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
     if ((new Date().getDate() > 14) && (todayMonth % 2 === 0)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
