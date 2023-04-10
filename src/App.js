@@ -59,22 +59,43 @@ function App() {
     let todate;
     let timeObjects = [];
     const today = new Date();
-    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 1)) {
-      todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
-      todate.setDate(14 - todate.getDay());
+    if (new Date().getDate() <= 14) {
       if (today > new Date(todate)) {
-        todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
+        todayMonth = todayMonth + 1;
+        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        // todate.setDate(14 - todate.getDay());
+        // console.log(todate);
       }
+      todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+      // todate.setDate(14 - todate.getDay());
     }
-    if ((new Date().getDate() <= 14) && (todayMonth % 2 === 0))  {
-      todate = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
-      todate.setDate(14 - todate.getDay());
-      if (today > new Date(todate)) {
-        todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
-      }
+    if (new Date().getDate() > 14) {
+      todayMonth = todayMonth + 1;
+      todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+      // todate.setDate(14 - todate.getDay());
+      // if (today > new Date(todate)) {
+      //   todayMonth = todayMonth + 1;
+      //   todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        // todate.setDate(14 - todate.getDay());
+        // console.log(todate);
+      // }
     }
-    if ((new Date().getDate() > 14) && (todayMonth % 2 === 1)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
-    if ((new Date().getDate() > 14) && (todayMonth % 2 === 0)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
+    // if (new Date().getDate() <= 14) {
+    //   todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+    //   todate.setDate(14 - todate.getDay());
+    //   if (today > new Date(todate)) {
+    //     todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+    //     todate.setDate(14 - todate.getDay());
+    //     console.log(todate);
+    //   }
+      // todate = new Date(Date.UTC(todayYear, todayMonth, 1, 7, 0, 0, 0));
+      // todate.setDate(14 - todate.getDay());
+      // if (today > new Date(todate)) {
+      //   todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
+      // }
+    // }
+    // if ((new Date().getDate() > 14) && (todayMonth % 2 === 1)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
+    // if ((new Date().getDate() > 14) && (todayMonth % 2 === 0)) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 7, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
     setShowDate(todate);
     setLoading(false);
