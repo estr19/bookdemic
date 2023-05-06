@@ -61,17 +61,27 @@ function App() {
     const today = new Date();
     if (new Date().getDate() <= 14) {
       todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+      console.log('1 ' + todayMonth);
+      if (today < new Date(todate)) {
+        console.log((today < new Date(todate)));
+        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        console.log('2 ' + todate);
+      }
       if (today > new Date(todate)) {
-        todayMonth = todayMonth + 1;
-        // todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        console.log((today > new Date(todate)));
+        // todayMonth = todayMonth + 1;
+        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        console.log('3 ' + todate);
       }
     }
     if (new Date().getDate() > 14) {
       todayMonth = todayMonth + 1;
+      // console.log(todate);
     }
     // if (new Date().getDate() > 14) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
     todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
+    // console.log(todate);
     setShowDate(todate);
     setLoading(false);
 
