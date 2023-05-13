@@ -11,7 +11,7 @@ function App() {
   const [visible, setVisible] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
   const [playLogo, setPlayLogo] = useState('play_circle');
-  const [showDiscussion, setShowDiscussion] = useState(false);
+  // const [showDiscussion, setShowDiscussion] = useState(false);
   const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const [isLoading, setLoading] = useState(true);
   const song = useRef(new Audio(lullaby));
@@ -62,15 +62,15 @@ function App() {
     if (new Date().getDate() <= 14) {
       todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
       // console.log('1 ' + todayMonth + " " + today.getTime() + " " + todate.getTime());
-      if (new Date(todate) < today) {
+      if (new Date(todate) > today) {
         // console.log('2 ' + (today < new Date(todate)));
         todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
         // console.log('2 ' + todate);
       } 
-      // else
-      if (new Date(todate) > today)
+      else
+      // if (new Date(todate) > today)
        {
-        // console.log('3 ' + (today > new Date(todate)));
+        // console.log('3 ' + (today < new Date(todate)));
         todayMonth = todayMonth + 1;
         todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
         // console.log('3 ' + todate);
@@ -78,12 +78,12 @@ function App() {
     }
     if (new Date().getDate() > 14) {
       todayMonth = todayMonth + 1;
-      // console.log(todate);
+      // console.log('4 ' + todate);
     }
-    // if (new Date().getDate() > 14) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+    if (new Date().getDate() > 14) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
     todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
-    // console.log(todate);
+    // console.log('5 ' + todate);
     setShowDate(todate);
     setLoading(false);
 
@@ -106,7 +106,7 @@ function App() {
         seconds: displaySeconds,
       }
     } else {
-      setShowDiscussion(true);
+      // setShowDiscussion(true);
     }
     return setShowTime(timeObjects);
   }
@@ -142,9 +142,9 @@ function App() {
           </button>
           {isLoading ? <p className="nextMtg">L o a d i n g . . . </p> :
           <p className="nextMtg">
-            {showDiscussion ? (
-              "Discussing the book at the moment 😁"
-            ) : (
+            {/* {/* {showDiscussion ? ( */}
+              {/* "Discussing the book at the moment 😁" */}
+            {/* ) : ( */}
               <span id="nextDiscussion">
                 Our next book discussion is in:{" "}
                 <span id="mtgString">
@@ -152,7 +152,7 @@ function App() {
                 </span>
                 {mtgDate}th
               </span>
-            )}
+            {/* )} */}
           </p>}
         </div>
         <div id="input-container">
