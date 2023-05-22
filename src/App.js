@@ -11,7 +11,6 @@ function App() {
   const [visible, setVisible] = useState(false);
   const [showQuote, setShowQuote] = useState(false);
   const [playLogo, setPlayLogo] = useState('play_circle');
-  // const [showDiscussion, setShowDiscussion] = useState(false);
   const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const [isLoading, setLoading] = useState(true);
   const song = useRef(new Audio(lullaby));
@@ -105,8 +104,6 @@ function App() {
         minutes: displayMinutes,
         seconds: displaySeconds,
       }
-    } else {
-      // setShowDiscussion(true);
     }
     return setShowTime(timeObjects);
   }
@@ -142,9 +139,6 @@ function App() {
           </button>
           {isLoading ? <p className="nextMtg">L o a d i n g . . . </p> :
           <p className="nextMtg">
-            {/* {/* {showDiscussion ? ( */}
-              {/* "Discussing the book at the moment 😁" */}
-            {/* ) : ( */}
               <span id="nextDiscussion">
                 Our next book discussion is in:{" "}
                 <span id="mtgString">
@@ -152,7 +146,6 @@ function App() {
                 </span>
                 {mtgDate}th
               </span>
-            {/* )} */}
           </p>}
         </div>
         <div id="input-container">
