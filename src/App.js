@@ -168,7 +168,7 @@ function App() {
               : 'Click here for our favorite "Twilight" quotes!'}
           </button>
         </div>
-        <h1>Bookdemic "Book of the Month" Winners!</h1>
+        <h1>Bookdemic "Book of the Month" picks!</h1>
         <p id="description">The stars reveal our club's average rating.</p>
       </div>
 
