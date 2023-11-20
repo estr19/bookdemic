@@ -59,11 +59,11 @@ function App() {
     let timeObjects = [];
     const today = new Date();
     if (new Date().getDate() <= 14) {
-      todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+      todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 4, 0, 0, 0));
       // console.log('1 ' + todayMonth + " " + today.getTime() + " " + todate.getTime());
       if (new Date(todate) > today) {
         // console.log('2 ' + (today < new Date(todate)));
-        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 4, 0, 0, 0));
         // console.log('2 ' + todate);
       } 
       else
@@ -71,7 +71,7 @@ function App() {
        {
         // console.log('3 ' + (today < new Date(todate)));
         todayMonth = todayMonth + 1;
-        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+        todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 4, 0, 0, 0));
         // console.log('3 ' + todate);
       }
     }
@@ -79,8 +79,8 @@ function App() {
       todayMonth = todayMonth + 1;
       // console.log('4 ' + todate);
     }
-    if (new Date().getDate() > 14) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
-    todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 7, 0, 0, 0));
+    if (new Date().getDate() > 14) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, todayMonth % 2 === 1 ? 19 : 4, 0, 0, 0));
+    todate = new Date(Date.UTC(todayYear, todayMonth, 1, todayMonth % 2 === 1 ? 19 : 4, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
     // console.log('5 ' + todate);
     setShowDate(todate);
