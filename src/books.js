@@ -1,3 +1,5 @@
+import ws from './912q5cQs6DL._SL1500_.jpg';
+
 export const books = [
   // {
   //   id: ,
@@ -9,13 +11,22 @@ export const books = [
   //   link: '',
   // },
   {
+    id: 46,
+    name: 'Turtles All the Way Down',
+    author: 'John Green',
+    month: 'February 2024',
+    bookRating: '-',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1503002776i/35504431.jpg',
+    link: 'https://www.goodreads.com/book/show/35504431-turtles-all-the-way-down',
+  },
+  {
     id: 45,
     name: 'Winter Solstice',
     author: 'Rosamunde Pilcher',
     theme: 'holidays',
     month: 'January 2024',
-    bookRating: '-',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1586522301i/53102650.jpg',
+    bookRating: '3.7',
+    cover: ws,
     link: 'https://www.goodreads.com/book/show/116054.Winter_Solstice',
   },
   {
