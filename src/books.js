@@ -12,7 +12,7 @@ export const books = [
   // },
   {
     id: 50,
-    name: 'Я всегда остаюсь собой',
+    name: 'The Unswitchable',
     author: 'Yoav Blum',
     theme: 'phoenix',
     month: 'June 2024',
