@@ -1,4 +1,5 @@
 import ws from './912q5cQs6DL._SL1500_.jpg';
+import themeasure from './themeasure.png';
 
 export const books = [
   // {
@@ -11,12 +12,21 @@ export const books = [
   //   link: '',
   // },
   {
+    id: 51,
+    name: 'The Measure',
+    author: 'Nikki Erlick',
+    month: 'July 2024',
+    bookRating: '-',
+    cover: themeasure,
+    link: 'https://www.goodreads.com/book/show/58884736-the-measure',
+  },
+  {
     id: 50,
     name: 'The Unswitchable',
     author: 'Yoav Blum',
     theme: 'phoenix',
     month: 'June 2024',
-    bookRating: '-',
+    bookRating: '3.1',
     cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1650435044i/60849571.jpg',
     link: 'https://www.goodreads.com/book/show/60849571',
   },
