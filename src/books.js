@@ -26,7 +26,7 @@ export const books = [
     name: `Beneath Devil's Bridge`,
     author: 'Loreth Anne White',
     month: 'October 2024',
-    bookRating: '3.6',
+    bookRating: '3.9',
     cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603162253i/55526894.jpg',
     link: 'https://www.goodreads.com/book/show/55526894-beneath-devil-s-bridge',
   },

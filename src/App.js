@@ -183,7 +183,7 @@ function App() {
                   <img src={cover} alt={name} />
                   <figcaption className={theme}>{month}</figcaption>
                 </figure>
-                <p>
+                <p fontFamily={author === "Stephenie Meyer" ? "Twilight": "Acme"}>
                     "{name}"
                 </p>
                 <p className="author">{author}</p>
