@@ -178,7 +178,7 @@ function App() {
             book;
           return (
             <div className="book" key={id}>
-              <a href={link} target="_blank" rel="noreferrer">
+              <a href={link} target="_blank" rel="noopener noreferrer">
                 <figure>
                   <img src={cover} alt={name} />
                   <figcaption className={theme}>{month}</figcaption>
