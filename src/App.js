@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { books } from './books';
-import { quotes } from './quotes';
+// import { quotes } from './quotes';
 import lullaby from "./lullaby.mp3";
 
 function App() {
   const [myBooks] = useState(books);
-  const [quote, setQuote] = useState();
+  // const [quote, setQuote] = useState();
   const [showTime, setShowTime] = useState([]);
   const [mySearch, setMySearch] = useState('');
   const [visible, setVisible] = useState(false);
-  const [showQuote, setShowQuote] = useState(false);
+  // const [showQuote, setShowQuote] = useState(false);
   const [playLogo, setPlayLogo] = useState('play_circle');
   const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
   const [isLoading, setLoading] = useState(true);
@@ -48,11 +48,11 @@ function App() {
     }
   };
 
-  const handleQuoteClick = () => {
-    let i = Math.floor(Math.random() * quotes.length);
-    setQuote(quotes[i]);
-    setShowQuote(true);
-  }
+  // const handleQuoteClick = () => {
+  //   let i = Math.floor(Math.random() * quotes.length);
+  //   setQuote(quotes[i]);
+  //   setShowQuote(true);
+  // }
 
   const meetingCountdown = () => {
     let todate;
@@ -161,13 +161,13 @@ function App() {
       </div>
 
       <div className="title">
-        <div id="quote">
+        {/* <div id="quote">
           <button onClick={handleQuoteClick} id="quotebutton">
             {showQuote
               ? `${quote}`
               : 'Click here for our favorite "Twilight" quotes!'}
           </button>
-        </div>
+        </div> */}
         <h1>Bookdemic "Book of the Month" picks!</h1>
         <p id="description">The stars reveal our club's average rating.</p>
       </div>
