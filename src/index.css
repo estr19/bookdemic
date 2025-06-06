@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Twilight";
-  src: url("/src/LD\ Twylight.ttf");
+  src: url("src/Twylight.ttf")  format('ttf');
 }
 
 .App {
