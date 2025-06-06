@@ -183,10 +183,10 @@ function App() {
                   <img src={cover} alt={name} />
                   <figcaption className={theme}>{month}</figcaption>
                 </figure>
-                <p style={author === "Stephenie Meyer" ? {"font-family": "Twilight"} : {"font-family": "'Acme', 'Oswald'"}}>
+                <p style={author === "Stephenie Meyer" ? {"fontFamily": "'Twilight', 'Acme'", "fontWeight": "bolder"} : {"fontFamily": "'Acme', 'Oswald'"}}>
                     "{name}"
                 </p>
-                <p className="author">{author}</p>
+                <p style={author === "Stephenie Meyer" ? {"fontFamily": "'Twilight', 'Acme'", "fontWeight": "bolder"} : {"fontFamily": "'Acme', 'Oswald'"}} className="author">{author}</p>
                 <div
                   className="Stars"
                   style={{ "--rating": `${bookRating}` }}

@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Twilight";
-  src: url("/src\Twylight.ttf")  format('ttf');
+  font-weight: bolder;
+  src: url("./fonts/Twylight.woff2")  format('woff2');
 }
 
 .App {

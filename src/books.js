@@ -101,7 +101,7 @@ export const books = [
     name: 'Yellowface',
     author: 'R.F. Kuang',
     month: 'September 2024',
-    bookRating: '-',
+    bookRating: '3.6',
     cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1671336740i/62060532.jpg',
     link: 'https://www.goodreads.com/book/show/62060532-yellowface',
   },
