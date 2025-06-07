@@ -41,7 +41,7 @@ export const books = [
   },
   {
     id: 59,
-    name: 'Три года в аду. Как Светлана Богачева украла мою жизнь',
+    name: 'Три года в аду',
     author: 'Таня Щукина',
     theme: 'trueCrime',
     month: 'March 2025',
