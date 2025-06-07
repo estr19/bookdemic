@@ -181,7 +181,7 @@ function App() {
               <a href={link} target="_blank" rel="noopener noreferrer">
                 <figure>
                   <img src={cover} alt={name} />
-                  <figcaption className={theme}>{month}</figcaption>
+                  <figcaption title={theme !== "regular" ? `${theme} month` : `general discussion`} className={theme}>{month}</figcaption>
                 </figure>
                 <p style={author === "Stephenie Meyer" ? {"fontFamily": "'Twilight', 'Acme'", "fontWeight": "bolder"} : {"fontFamily": "'Acme', 'Oswald'"}}>
                     "{name}"
