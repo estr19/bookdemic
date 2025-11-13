@@ -18,7 +18,7 @@ export const books = [
     theme: 'regular',
     month: 'December 2025',
     bookRating: '-',
-    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1316440644i/3720975.jpg',
+    cover: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781439156308/handle-with-care-9781439156308_xlg.jpg',
     link: 'https://www.goodreads.com/book/show/3720975-handle-with-care',
   },
   {
