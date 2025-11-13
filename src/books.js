@@ -28,7 +28,7 @@ export const books = [
     theme: 'halloween',
     month: 'November 2025',
     bookRating: '4.3',
-    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1632321032i/59053857.jpg',
+    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1451843098i/27877139.jpg',
     link: 'https://www.goodreads.com/book/show/59053857-misery',
   },
   {
