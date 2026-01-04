@@ -11,7 +11,7 @@ function App() {
   const [visible, setVisible] = useState(false);
   // const [showQuote, setShowQuote] = useState(false);
   const [playLogo, setPlayLogo] = useState('play_circle');
-  const [showDate, setShowDate] = useState(new Date("2023-01-11T19:00:00Z"));
+  const [showDate, setShowDate] = useState(new Date("2025-01-11T19:00:00Z"));
   const [isLoading, setLoading] = useState(true);
   const song = useRef(new Audio(lullaby));
   const options = { month: 'long'};
