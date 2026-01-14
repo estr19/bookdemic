@@ -13,6 +13,7 @@ function App() {
   const [playLogo, setPlayLogo] = useState('play_circle');
   const [showDate, setShowDate] = useState(new Date("2025-01-11T19:00:00Z"));
   const [isLoading, setLoading] = useState(true);
+  const [isMeeting, setIsMeeting] = useState(true);
   const song = useRef(new Audio(lullaby));
   const options = { month: 'long'};
   let mtgDate = (new Intl.DateTimeFormat('en-US', options).format(showDate) + ' ' + showDate.getDate());
@@ -60,25 +61,30 @@ function App() {
     const today = new Date();
     if (new Date().getDate() <= 14) {
       todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
+      setIsMeeting(false);
+      // console.log(isMeeting);
       // console.log('1 ' + todayMonth + " " + today.getTime() + " " + todate.getTime());
-      if (new Date(todate) > today) {
-        todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
-        // console.log('2 ' + todate);
-      } 
-      else
-      if (new Date(todate) > today)
-       {
-        console.log('3 ' + (today < new Date (todate)));
-        todayMonth = todayMonth + 1;
-        todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
-        // console.log('3 ' + todate);
-      }
+      // if (new Date(todate) > today) {
+      //   todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
+      //   console.log('2 ' + todate);
+      // } 
+      // else
+      // if (new Date(todate) > today)
+      //  {
+      //   console.log('3 ' + (today < new Date (todate)));
+      //   todayMonth = todayMonth + 1;
+      //   todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
+      //   console.log('3 ' + todate);
+      // }
     }
+    // if (new Date().getDate() > 14) {
+    //   todayMonth = todayMonth + 1;
+    // }
     if (new Date().getDate() > 14) {
-      todayMonth = todayMonth + 1;
+      setIsMeeting(true);
+      todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
       // console.log('4 ' + todate);
     }
-    if (new Date().getDate() > 14) todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
     todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
     // console.log('5 ' + todate);
@@ -138,13 +144,18 @@ function App() {
           </button>
           {isLoading ? <p className="nextMtg">L o a d i n g . . . </p> :
           <p className="nextMtg">
-              <span id="nextDiscussion">
+              {isMeeting ? <span id="nextDiscussion">
                 Our next book discussion is in:{" "}
                 <span id="mtgString">
                   {showTime.days} : {showTime.hours} : {showTime.minutes} : {showTime.seconds}
                 </span>
                 {mtgDate}th
-              </span>
+                </span>
+              :
+                <span id="nextDiscussion">
+                Check back in a few days for a new date!
+                </span>
+              }
           </p>}
         </div>
         <div id="input-container">
