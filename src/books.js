@@ -17,7 +17,7 @@ export const books = [
     author: 'Ernest Cline',
     month: 'February 2026',
     bookRating: '-',
-    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1542995348i/521019.jpg',
+    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1390275705i/20603758.jpg',
     link: 'https://www.goodreads.com/book/show/20603758-ready-player-one',
   },
   {
