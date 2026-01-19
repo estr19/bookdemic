@@ -85,7 +85,7 @@ function App() {
       todate = new Date(Date.UTC(todayYear, todayMonth + 1, 1, 19, 0, 0, 0));
       // console.log('4 ' + todate);
     }
-    todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
+    // todate = new Date(Date.UTC(todayYear, todayMonth, 1, 19, 0, 0, 0));
     todate.setDate(14 - todate.getDay());
     // console.log('5 ' + todate);
     setShowDate(todate);
