@@ -1,5 +1,6 @@
 import ws from './912q5cQs6DL._SL1500_.jpg';
 import themeasure from './themeasure.png';
+import steklo from './Steklo.png';
 
 export const books = [
   // {
@@ -12,16 +13,26 @@ export const books = [
   //   link: '',
   // },
   {
-    id: 74,
+    id: 76,
+    name: 'Связанные Импульсом: Стекло',
+    author: 'Ангелина Пол',
+    theme: 'cringe',
+    month: 'August 2026',
+    bookRating: '-',
+    cover: steklo,
+    link: '',
+  },
+  {
+    id: 75,
     name: 'Lovely Girls',
     author: 'Margot Hunt',
     month: 'July 2026',
-    bookRating: '-',
-    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1653566823i/59554746.jpg',
+    bookRating: '3.5',
+    cover: 'https://m.media-amazon.com/images/I/814Vs0RHeWL._UF1000,1000_QL80_.jpg',
     link: 'https://www.goodreads.com/book/show/59554746-lovely-girls',
   },
   {
-    id: 73,
+    id: 74,
     name: 'Magpie Murders',
     author: 'Anthony Horowitz',
     theme: 'phoenix',
@@ -31,7 +42,7 @@ export const books = [
     link: 'https://www.goodreads.com/book/show/32970179-magpie-murders',
   },
   {
-    id: 72,
+    id: 73,
     name: `Sweetpea`,
     author: 'C.J. Skuse',
     month: 'May 2026',
@@ -65,7 +76,7 @@ export const books = [
     theme: 'regular',
     month: 'February 2026',
     bookRating: '4.0',
-    cover: 'https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1390275705i/20603758.jpg',
+    cover: 'https://m.media-amazon.com/images/I/91FGDm7MfIL._AC_UF1000,1000_QL80_.jpg',
     link: 'https://www.goodreads.com/book/show/20603758-ready-player-one',
   },
   {
